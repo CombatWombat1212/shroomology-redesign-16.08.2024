@@ -2,6 +2,9 @@ const fs = require("fs");
 const chokidar = require("chokidar");
 const path = require("path");
 const { spawn } = require("child_process");
+const uglifyJS = require("uglify-js");
+const cssnano = require("cssnano");
+const postcss = require("postcss");
 
 const scriptFolderPath = "./script";
 const htmlFolderPath = "./html";
@@ -68,32 +71,36 @@ function getStyleFilesContent() {
   return styleContent;
 }
 
-// Function to compile all contents into their respective output files
-function compileFiles() {
+// Function to compile and minify files
+async function compileFiles() {
+  console.time("Compile and Minify Time");
+
   const htmlContent = getHtmlFilesContent();
   const styleContent = getStyleFilesContent();
   const scriptContent = getScriptFilesContent();
 
-  fs.writeFileSync(
-    path.join(outputFolderPath, "scripts.js"),
-    scriptContent,
-    "utf-8"
-  );
-  fs.writeFileSync(
-    path.join(outputFolderPath, "style.css"),
-    styleContent,
-    "utf-8"
-  );
-  fs.writeFileSync(
-    path.join(outputFolderPath, "head.html"),
-    htmlContent,
-    "utf-8"
-  );
+  // Write the compiled files to the output directory
+  fs.writeFileSync(path.join(outputFolderPath, "scripts.js"), scriptContent, "utf-8");
+  fs.writeFileSync(path.join(outputFolderPath, "style.css"), styleContent, "utf-8");
+  fs.writeFileSync(path.join(outputFolderPath, "head.html"), htmlContent, "utf-8");
+
+  // Minify JavaScript
+  const minifiedJS = uglifyJS.minify(scriptContent);
+  if (minifiedJS.error) {
+    console.error("Error minifying JavaScript:", minifiedJS.error);
+  } else {
+    fs.writeFileSync(path.join(outputFolderPath, "scripts.min.js"), minifiedJS.code, "utf-8");
+  }
+
+  // Minify CSS using cssnano
+  const minifiedCSS = await postcss([cssnano]).process(styleContent, { from: undefined });
+  fs.writeFileSync(path.join(outputFolderPath, "style.min.css"), minifiedCSS.css, "utf-8");
 
   // Append the cloudflared embed code if URLs are available
   appendCloudflaredLinks();
 
-  console.log("Files compiled successfully to the output folder.");
+  console.log("Files compiled and minified successfully to the output folder.");
+  console.timeEnd("Compile and Minify Time");
 }
 
 // Function to append cloudflared links to the head.html file

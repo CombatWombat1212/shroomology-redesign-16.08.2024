@@ -13,6 +13,8 @@
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.22.2",
-    "prettier": "^3.3.3"
+    "cssnano": "^7.0.5",
+    "prettier": "^3.3.3",
+    "uglify-js": "^3.19.2"
   }
 }
