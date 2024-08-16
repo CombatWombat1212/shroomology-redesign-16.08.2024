@@ -1,0 +1,89 @@
+// I repeat button code a lot, i gotta put this stuff into a button-core type file and chunk it out better
+
+@mixin unset-button-animation {
+  transform: none !important;
+  box-shadow: unset !important;
+}
+
+body a[role="button"].nectar-button.button,
+%button {
+
+  --transition: 0.1s;
+  --button--border-width: 2px;
+
+  opacity: 1 !important;
+
+  @extend %text--body;
+  font-family: $font-family--primary !important;
+  text-transform: uppercase !important;
+  font-weight: 450 !important;
+  // @include pad-y-important(0.85rem);
+  // @include pad-x-important(1.5rem);
+  @include pad-y-important(0.65rem);
+  @include pad-x-important(1.5rem);
+  @include unset-button-animation;
+  border-radius: $inf!important;
+
+  border: var(--button--border-width) solid var(--button--border-color) !important;
+  background-color: var(--button--fill-color) !important;
+  &,& > span {
+    color: var(--button--text-color) !important;
+    transform: translateY(1px)!important;
+  }
+
+  --button--border-color: #{rgba($col--rustic, 0)};
+  --button--fill-color: #{$col--rustic};
+  --button--text-color: #fff;
+
+  @include hover {
+    --button--border-color: #{$col--rustic};
+    --button--fill-color: #fff;
+    --button--text-color: #{$col--rustic};
+  }
+
+  &__secondary {
+    --button--border-color: #{rgba($col--rustic, 1)};
+    --button--fill-color: #{rgba($col--rustic, 0)};
+    --button--text-color: #{$col--rustic};
+
+    @include hover {
+      --button--border-color: #{rgba($col--rustic, 1)};
+      --button--fill-color: #{rgba($col--rustic, 1)};
+      --button--text-color: #{$col--white};
+    }
+  }
+
+  &__tertiary {
+    --button--border-color: #{rgba($col--rustic, 0)};
+    --button--fill-color: #{$col--rustic};
+    --button--text-color: #fff;
+
+    @include hover {
+      --button--border-color: #{$col--rustic};
+      --button--fill-color: #{rgba($col--rustic, 0)};
+      --button--text-color: #{$col--rustic};
+    }
+  }
+
+  &__quaternary {
+    --button--border-color: #be9578;
+    --button--fill-color: #be957800;
+    --button--text-color: #be9578;
+
+    @include hover {
+      --button--border-color: #be9578;
+      --button--fill-color: #be9578;
+      --button--text-color: #fff;
+    }
+  }
+
+  &__fit-center {
+    @include mx-auto-important;
+    width: fit-content !important;
+    display: block !important;
+  }
+
+  &__fit {
+    width: fit-content !important;
+  }
+}

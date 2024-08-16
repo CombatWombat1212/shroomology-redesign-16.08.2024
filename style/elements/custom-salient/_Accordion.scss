@@ -1,0 +1,49 @@
+#home--accordion {
+
+  
+  .toggles.accordion {
+    background-color: unset !important;
+  }
+  .toggle {
+    @include pad-x(2rem);
+    border-color: $col--cocoa;
+    background-color: $col--petal;
+  }
+
+  .toggle a {
+    color: $col--cocoa;
+    @include text--body;
+    text-transform: uppercase !important;
+    font-style: italic;
+    @include hover("#home--accordion .toggle", "a") {
+      color: darken($col--cocoa, 5%);
+    }
+  }
+
+  i.fa {
+    border-color: $col--cocoa;
+
+    @at-root #home--accordion .toggle.open i.fa {
+      border-color: darken($col--cocoa, 5%) !important;
+    }
+  }
+  i.fa::before,
+  i.fa::after {
+    background-color: $col--cocoa;
+    @at-root {
+      #home--accordion .toggle.open i.fa::before,
+      #home--accordion .toggle.open i.fa::after {
+        background-color: darken($col--cocoa, 5%) !important;
+      }
+    }
+  }
+
+  h4 a {
+    color: #a8754a !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+    @include hover {
+      color: darken(#a8754a, 5%) !important;
+    }
+  }
+}

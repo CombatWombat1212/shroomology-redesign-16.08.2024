@@ -1,0 +1,151 @@
+@mixin testimonial {
+  $root: ".highlight-row--row";
+  $context: #{&};
+  $is-root: if(
+    str-index($context, $root) == 1 and not str-index($context, $root + "--"),
+    true,
+    false
+  );
+  $replacement: #{str-trim($root)}#{".highlight-row__testimonial"};
+
+  @if $is-root {
+    @at-root #{selector-replace($context, $root, $replacement)} {
+      @content;
+    }
+  } @else {
+    @at-root #{$replacement} & {
+      @content;
+    }
+  }
+}
+
+.highlight-row {
+  &--row {
+    --highlight-row--graphic-size: 3.5rem;
+    --highlight-row--pad-x: 2rem;
+    --highlight-row--pad-y: var(--section--padding);
+    
+    @include section-background-color(#776d6b);
+    @include section-text-color($col--white);
+    
+    @include pad-x(calc(var(--highlight-row--pad-x) / 2));
+    
+    @include testimonial {
+      --highlight-row--graphic-size: 1rem;
+      --highlight-row--pad-x: 4rem;
+      @include section-background-color(#727772);
+    }
+    
+    @include lg-down {
+      --section--padding: 0rem;
+    }
+
+    & > [class*="row_col_wrap"] {
+      @include boot-gap-important(var(--highlight-row--pad-x), var(--highlight-row--pad-y));
+    }
+  }
+
+  &--col {
+    & > * {
+      @include lg-down {
+        @include pad-y-important(3rem);
+      }
+    }
+
+    &:nth-child(2) {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: var(--border-width);
+        height: calc(100% + var(--section--padding));
+        // @include marg-y(calc(var(--section--padding) / 2));
+        background-color: $col--background;
+        top: calc(((var(--section--padding) / 2)) * -1);
+        visibility: unset;
+
+        @include lg-down {
+          width: calc(100% + var(--section--padding));
+          height: var(--border-width);
+        }
+      }
+
+      &::before {
+        left: 0;
+
+        @include lg-down {
+          top: 0;
+        }
+      }
+      &::after {
+        right: 0;
+
+        @include lg-down {
+          top: 100%;
+        }
+      }
+    }
+  }
+
+  //.highlight-row--content-inner
+  &--col .wpb_wrapper {
+    @include flex-col-center;
+    align-items: center;
+    text-align: center;
+
+    @include testimonial {
+      @include flex-col;
+      align-items: left !important;
+      text-align: left !important;
+    }
+  }
+
+  &--graphic-row {
+    @include flex-row-left-important;
+    margin-bottom: 0.85rem !important;
+    width: 100%;
+
+    .wpb_wrapper {
+      @include flex-row-important;
+      @include boot-gap-important(0.65rem);
+    }
+  }
+
+  //.highlight-row--graphic
+  &--col .hover-wrap-inner {
+    --size: var(--highlight-row--graphic-size);
+    @include s;
+    margin-bottom: 1rem !important;
+    @include testimonial {
+      margin-bottom: 0rem !important;
+    }
+  }
+
+  &--image {
+    @include img-contain-important;
+  }
+
+  &--body {
+    @include testimonial {
+      @include flex-row-left;
+      width: 100%;
+      text-align: left;
+    }
+
+    & > * > * {
+      @include testimonial {
+        margin-right: auto;
+      }
+    }
+
+    h4 {
+      margin-bottom: -0.15rem !important;
+    }
+
+    p {
+      margin-bottom: 0rem !important;
+    }
+  }
+}

@@ -1,0 +1,187 @@
+
+// nav shopping cart hover menu
+.widget_shopping_cart {
+  --cart--padding: 1.5rem;
+  --cart--item-gap: 1.35rem;
+  --cart--image-size: 3.5rem;
+  --cart--border-width: 2px;
+  --cart--border-color: #{rgba($col--petal, 0.25)};
+  //   --cart--background-color: #{#fff};
+  --cart--background-color: #{#fff};
+
+  // @include force-open-cart;
+
+  @include head-very-important {
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+
+    * {
+      margin: 0rem !important;
+      padding: 0rem !important;
+    }
+  }
+
+  //   inner cart
+  .widget_shopping_cart_content {
+    @include head-very-important {
+      background-color: var(--cart--background-color) !important;
+    }
+  }
+
+  @include head-very-important {
+    top: calc(100% + var(--cart--padding)) !important;
+  }
+
+  //   ul of cart items
+  .woocommerce-mini-cart {
+    @include head-very-important {
+      width: 24rem !important;
+    }
+  }
+
+  // li item for the stuff in your cart
+  .woocommerce-mini-cart-item {
+    @include head-very-important {
+      background-color: var(--cart--background-color) !important;
+
+      padding: var(--cart--padding) !important;
+      //   padding-right: calc(var(--cart--padding) * 0.25) !important;
+      display: grid;
+      grid-template-columns: var(--cart--image-size) 1fr;
+      grid-template-rows: 1fr;
+      column-gap: var(--cart--item-gap);
+      border: none !important;
+      position: relative !important;
+
+      //   @include pad-y-important(calc(var(--cart--padding) * 0.85));
+
+      &:first-child {
+        padding-top: var(--cart--padding) !important;
+      }
+
+      &:last-child {
+        padding-bottom: var(--cart--padding) !important;
+      }
+
+      @include pseudo-reset;
+
+      & + .woocommerce-mini-cart-item {
+        // padding-top: calc(0rem) !important;
+
+        &::before {
+          content: "" !important;
+          display: block !important;
+          width: 100%;
+          height: 2px;
+          background-color: var(--cart--border-color);
+          position: absolute;
+          z-index: 2;
+          visibility: visible;
+          //   margin-left: calc(var(--cart--padding) * -0.5) !important;
+          top: 0;
+          transform: translateY(-25%);
+        }
+      }
+    }
+  }
+
+  // item image
+  .woocommerce-mini-cart-item > a:first-child {
+    @include head-very-important {
+      width: var(--cart--image-size) !important;
+      height: var(--cart--image-size) !important;
+      border-radius: 0.5rem !important;
+      overflow: hidden !important;
+
+      img {
+        @include img-cover;
+      }
+    }
+  }
+
+  // group of product details and quanity
+  .woocommerce-mini-cart-item .product-meta {
+    width: 100% !important;
+    @include my-auto;
+  }
+
+  // cost, name, and close button
+  .woocommerce-mini-cart-item .product-details {
+    // item name
+    a:not(.remove_from_cart_button) {
+      @include head-very-important {
+        @include item-name;
+      }
+    }
+
+    // x button to remove from card
+    .remove_from_cart_button {
+      transform: scale(1.5) translateY(-2px);
+      opacity: 0.85;
+    }
+  }
+
+  // quanity of list item
+  .woocommerce-mini-cart-item .quantity {
+    height: unset !important;
+    &,
+    & span {
+      @include head-very-important {
+        @include item-quantity;
+        margin-top: 0.35rem !important;
+      }
+    }
+  }
+
+  //   total title
+  .woocommerce-mini-cart__total {
+    @include head-very-important {
+      @include pad-x-important(var(--cart--padding));
+      border-top: solid var(--cart--border-width) var(--cart--border-color) !important;
+      padding-top: calc(var(--cart--padding) * 0.75) !important;
+    }
+
+    // subtotal title
+    strong {
+      @include head-very-important {
+        @include item-subtotal;
+        margin-right: 0.5rem !important;
+      }
+    }
+
+    // subtotal price
+    .woocommerce-Price-amount {
+      @include head-very-important {
+        @include text--body;
+        line-height: 125% !important;
+      }
+    }
+  }
+
+  //   cart and checkout buttons wrapper
+  .woocommerce-mini-cart__buttons {
+    @include head-very-important {
+      padding-top: 0.75rem !important;
+      padding-bottom: var(--cart--padding) !important;
+      @include pad-x-important(var(--cart--padding));
+      column-gap: var(--cart--item-gap);
+
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+
+      @include pseudo-reset;
+
+      & > * {
+        @extend %button;
+        width: 100% !important;
+        white-space: nowrap !important;
+
+        @include item-button;
+
+        &:first-child {
+          @extend %button__secondary;
+        }
+      }
+    }
+  }
+}

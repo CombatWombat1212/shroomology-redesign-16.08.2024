@@ -1,0 +1,29 @@
+#affiliate-logos .affiliate-logos,
+.affiliate-logos {
+  &--graphics-group {
+    [class*="wpb_wrapper"] {
+      @include flex-row-center;
+    }
+
+    .img-with-aniamtion-wrap {
+      @include pad-x-important(2rem);
+      @include lg-down {
+        @include pad-x-important(1rem);
+      }
+    }
+
+    .inner {
+      align-content: center;
+    }
+
+    --size: 100%;
+    .hover-wrap-inner {
+      max-width: 100%;
+      @include s;
+    }
+  }
+
+  &--graphic {
+    @include img-contain-important;
+  }
+}

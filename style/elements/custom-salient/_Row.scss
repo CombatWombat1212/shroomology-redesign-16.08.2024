@@ -1,0 +1,50 @@
+@mixin section-background-color($color: var(--section--background-color)) {
+  .row-bg {
+    background-color: $color !important;
+  }
+}
+
+@mixin section-text-color($color: var(--section--text-color)) {
+  &,
+  & * {
+    color: $color !important;
+  }
+}
+
+.main-content > .row > .wpb_row {
+  z-index: 3; //solves a background image bug
+  box-sizing: border-box;
+  // display: inline;
+
+  & + .wpb_row {
+  }
+
+  & > [class*="row_col"] {
+    box-sizing: border-box;
+    float: unset;
+    // @include marg-y-important(calc(var(--section--padding)  * -1));
+    @include pad-y-important(calc(var(--section--padding)));
+
+    @at-root .main-content
+        > .row
+        > .wpb_row:not(.row__bg-change-end)
+        + .wpb_row
+        > [class*="row_col"] {
+      padding-top: 0rem !important;
+    }
+  }
+
+  // &.row__bg-change-start {
+  //   // padding-top: calc(var(--section--padding) * 2) !important;
+  // }
+  // &.row__bg-change-end {
+  //   & > [class*="row_col"] {
+  //     padding-bottom: calc(var(--section--padding) * 2) !important;
+  //   }
+  // }
+
+  // Typically, distance between header and first row
+  .wpb_content_element {
+    margin-bottom: 0.75rem !important;
+  }
+}

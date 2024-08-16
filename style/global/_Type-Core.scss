@@ -1,0 +1,344 @@
+@import "Colors-Core";
+
+$font-family--primary: "Loretta";
+$font-family--secondary: "Gill Sans";
+
+$font-subtypes: ("accent", "big");
+
+//prettier-ignore
+// $text-styles: (
+//   "hero": (
+//     "font-family": $font-family--primary,
+//     "font-weight": 500,
+//     "font-size": (40, 78),
+//     "line-height": 100%,
+//     "accent": (
+//       "font-family": $font-family--primary,
+//       "font-weight": 400,
+//       "font-style": italic,
+//       "opacity": 0.75,
+//     ),
+//   ),
+//   "h1": (
+//     "font-family": $font-family--primary,
+//     "font-weight": 500,
+//     "font-size": (40, 68),
+//     "accent": (
+//       "font-family": $font-family--primary,
+//       "font-weight": 400,
+//       // "font-size": (40, 78),
+//       "line-height": (5, 20),
+//       "font-style": italic,
+//       "opacity": 0.75,
+//     ),
+//   ),
+//   "h2": (
+//     "font-family": $font-family--primary,
+//     "font-weight": 600,
+//     "font-size": (32, 56),
+//     "accent": (
+//       "font-family": $font-family--primary,
+//       "font-weight": 400,
+//       // "font-size": (31, 65),
+//       "font-style": italic,
+//       "opacity": 0.75,
+//     ),
+//   ),
+//   "h3": (
+//     "font-family": $font-family--primary,
+//     "font-weight": 600,
+//     "font-size": (28, 46),
+//     "accent": (
+//       "font-family": $font-family--primary,
+//       "font-weight": 400,
+//       // "font-size": (26, 53),
+//       "font-style": italic,
+//       "opacity": 0.75,
+//     ),
+//   ),
+//   "h4": (
+//     "font-family": $font-family--primary,
+//     "font-weight": 500,
+//     "font-size": (24, 35),
+//     "accent": (
+//       "font-family": $font-family--primary,
+//       "font-weight": 400,
+//       // "font-size": (21, 45),
+//       "font-style": italic,
+//       "opacity": 0.75,
+//     ),
+//   ),
+//   "h5": (
+//     "font-family": $font-family--primary,
+//     "font-weight": 500,
+//     "font-size": (20, 28),
+//     "accent": (
+//       "font-family": $font-family--primary,
+//       "font-weight": 400,
+//       // "font-size": (18, 30),
+//       "font-style": italic,
+//       "opacity": 0.75,
+//     ),
+//   ),
+//   "h6": (
+//     "font-family": $font-family--secondary,
+//     "font-weight": 400,
+//     "font-size": (18, 22),
+//   ),
+//   "body": (
+//     "font-family": $font-family--secondary,
+//     "font-weight": 300,
+//     "font-size": (18, 16.5),
+//     "line-height": 150%,
+//     "big": (
+//       "font-family": $font-family--secondary,
+//       "font-weight": 300,
+//       "font-size": (18, 20),
+//       "line-height": 145%,
+//     ),
+//   ),
+// );
+$text-styles: (
+  "hero": (
+    "font-family": $font-family--primary,
+    "font-weight": 500,
+    "font-size": (
+      44,
+      85.8,
+    ),
+    "line-height": 100%,
+    "accent": (
+      "font-family": $font-family--primary,
+      "font-weight": 400,
+      "font-style": italic,
+      "opacity": 0.75,
+    ),
+  ),
+  "h1": (
+    "font-family": $font-family--primary,
+    "font-weight": 500,
+    "font-size": (
+      44,
+      74.8,
+    ),
+    "accent": (
+      "font-family": $font-family--primary,
+      "font-weight": 400,
+      // "line-height": (
+      //   5,
+      //   20,
+      // ),
+      "font-style": italic,
+      "opacity": 0.75,
+    ),
+  ),
+  "h2": (
+    "font-family": $font-family--primary,
+    "font-weight": 600,
+    "font-size": (
+      35.2,
+      61.6,
+    ),
+    "accent": (
+      "font-family": $font-family--primary,
+      "font-weight": 400,
+      "font-style": italic,
+      "opacity": 0.75,
+    ),
+  ),
+  "h3": (
+    "font-family": $font-family--primary,
+    "font-weight": 600,
+    "font-size": (
+      30.8,
+      50.6,
+    ),
+    "accent": (
+      "font-family": $font-family--primary,
+      "font-weight": 400,
+      "font-style": italic,
+      "opacity": 0.75,
+    ),
+  ),
+  "h4": (
+    "font-family": $font-family--primary,
+    "font-weight": 500,
+    "font-size": (
+      26.4,
+      38.5,
+    ),
+    "accent": (
+      "font-family": $font-family--primary,
+      "font-weight": 400,
+      "font-style": italic,
+      "opacity": 0.75,
+    ),
+  ),
+  "h5": (
+    "font-family": $font-family--primary,
+    "font-weight": 500,
+    "font-size": (
+      22,
+      30.8,
+    ),
+    "accent": (
+      "font-family": $font-family--primary,
+      "font-weight": 400,
+      "font-style": italic,
+      "opacity": 0.75,
+    ),
+  ),
+  "h6": (
+    "font-family": $font-family--secondary,
+    "font-weight": 400,
+    "line-height": 145%,
+    "font-size": (
+      19.8,
+      24.2,
+    ),
+  ),
+  "body": (
+    "font-family": $font-family--secondary,
+    "font-weight": 300,
+    "font-size": (
+      19.8,
+      18.15,
+    ),
+    "line-height": 150%,
+    "big": (
+      "font-family": $font-family--secondary,
+      "font-weight": 300,
+      "font-size": (
+        19.8,
+        22,
+      ),
+      "line-height": 145%,
+    ),
+  ),
+);
+
+@mixin text-default {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+@mixin apply-properties($properties) {
+  @each $property-name, $property-value in $properties {
+    @if type-of($property-value) == "list" {
+      // no nothing if its a map because its probably fluid-type
+      // @each $value in $property-value {
+      //   #{$property-name}: $value !important;
+      // }
+    } @else {
+      #{$property-name}: $property-value !important;
+    }
+  }
+}
+
+@mixin text-style($key, $value) {
+  font-size: var(--font-size--#{$key}) !important;
+  line-height: var(--line-height--#{$key}, 120%) !important;
+  @include text-default;
+
+  $styles: map-remove-multiple($value, $font-subtypes);
+  $subtypes: map-get-multiple($value, $font-subtypes);
+
+  @if $styles {
+    @include apply-properties($styles);
+  }
+
+  // @warn $subtypes;
+  @if $subtypes {
+    @each $subtype, $properties in $subtypes {
+      &__#{$subtype} {
+        font-size: var(--font-size--#{$key}__#{$subtype}) !important;
+        line-height: var(--font-size--#{$key}__#{$subtype}, normal) !important;
+
+        @include apply-properties($properties);
+      }
+    }
+  }
+}
+
+@mixin mixin-text-style($key, $font-subtype: false) {
+  $styles: map-get($text-styles, $key);
+
+  // @each $subtype in $font-subtypes {
+  //   @if map-has-key($styles, $subtype) {
+  //     $font-subtype: $subtype;
+  //   }
+  // }
+  // @warn $key;
+
+  @if $font-subtype {
+    $styles: map-get(map-get($text-styles, $key), $font-subtype);
+    font-size: var(--font-size--#{$key}__#{$font-subtype}, var(--font-size--#{$key})) !important;
+    line-height: var(--line-height--#{$key}__#{$font-subtype} var(--line-height--#{$key}), normal) !important;
+  } @else {
+    $styles: map-remove(map-get($text-styles, $key), $font-subtype);
+    font-size: var(--font-size--#{$key}) !important;
+    line-height: var(--line-height--#{$key}, normal) !important;
+  }
+
+  @include text-default;
+  @each $property-name, $property-value in $styles {
+    @if type-of($property-value) != "map" and type-of($property-value) != "list" {
+      #{$property-name}: $property-value !important;
+    }
+  }
+
+
+  
+}
+
+%text {
+  @each $key, $value in $text-styles {
+    &--#{$key} {
+      @include text-style($key, $value);
+    }
+  }
+}
+
+
+
+@mixin text--h1 {
+  @include mixin-text-style("h1");
+}
+@mixin text--h1__accent {
+  @include mixin-text-style("h1", "accent");
+}
+@mixin text--h2 {
+  @include mixin-text-style("h2");
+}
+@mixin text--h2__accent {
+  @include mixin-text-style("h2", "accent");
+}
+@mixin text--h3 {
+  @include mixin-text-style("h3");
+}
+@mixin text--h3__accent {
+  @include mixin-text-style("h3", "accent");
+}
+@mixin text--h4 {
+  @include mixin-text-style("h4");
+}
+@mixin text--h4__accent {
+  @include mixin-text-style("h4", "accent");
+}
+@mixin text--h5 {
+  @include mixin-text-style("h5");
+}
+@mixin text--h5__accent {
+  @include mixin-text-style("h5", "accent");
+}
+@mixin text--h6 {
+  @include mixin-text-style("h6");
+}
+@mixin text--body {
+  @include mixin-text-style("body");
+}
+
+@mixin text--body__big {
+  @include mixin-text-style("body", "big");
+}
+

@@ -1,0 +1,67 @@
+// $article-sections-standard-gap: 3rem;
+
+// %article-sections {
+//   &--back {
+//     margin-bottom: 3.4rem !important;
+
+//     &,
+//     & > * {
+//       @include text--body;
+//       text-transform: uppercase;
+//     }
+//   }
+
+//   &--heading {
+//     margin-bottom: 0.25rem !important;
+//   }
+
+//   &--subheading {
+//     margin-bottom: 2.4rem !important;
+//   }
+
+//   &--image {
+//     margin-bottom: 2.25rem;
+//   }
+
+//   &--next-prev {
+//     margin-top: 85px !important;
+//     h3,
+//     h3 * {
+//       @extend %text--h5;
+//       color: #fff;
+//     }
+
+//     h3 > span:has(+ .text) {
+//       @extend %text--body;
+//       font-weight: 600 !important;
+//       color: $col--primary__light;
+//     }
+
+//     .next-post::after,
+//     .previous-post::after {
+//       opacity: 0.6 !important;
+//     }
+//     .next-post:hover:after,
+//     .next-post:focus:after,
+//     .previous-post:hover:after,
+//     .previous-post:focus:after {
+//       opacity: 0.8 !important;
+//     }
+//   }
+
+//   &--container {
+//     max-width: 880px;
+
+//     @media only screen and (min-width: 1px) and (max-width: 999px) {
+//       max-width: var(--mobile-container-width);
+//     }
+
+//     @media only screen and (min-width: 1000px) {
+//       max-width: 1425px;
+//     }
+
+//     @media only screen and (min-width: 1300px) {
+//       max-width: 1100px;
+//     }
+//   }
+// }

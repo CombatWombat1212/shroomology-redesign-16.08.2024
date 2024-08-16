@@ -1,0 +1,58 @@
+.form {
+  --form-gap: 2rem;
+  gap: var(--form-gap);
+  @include flex-col;
+  @extend %text--body;
+
+  &--row {
+    @include flex-row;
+    gap: var(--form-gap);
+
+    @include md-down {
+      @include flex-col;
+    }
+  }
+
+  &--label-wrapper {
+    @include flex-col;
+    position: relative;
+    width: 100%;
+  }
+
+  &--label {
+    z-index: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  &--input {
+    &:not([type="file"]):not([type="submit"]) {
+      padding: 0.5rem !important;
+      padding-left: 0.75rem !important;
+    }
+
+    &:not(textarea):not([type="file"]):not([type="submit"]) {
+      height: 3rem;
+    }
+
+    &[type="file"] {
+      //   display: none;
+    }
+
+    &::placeholder {
+      @extend %text--body;
+    }
+  }
+
+  &--upload {
+    // @extend %text--body;
+    // background-color: $col--secondary;
+    // cursor: pointer;
+    // margin: 0rem !important;
+  }
+
+  [class*="not-valid-tip"] {
+    box-shadow: unset !important;
+    padding: 0rem !important;
+    margin-top: 0.25rem !important;
+  }
+}

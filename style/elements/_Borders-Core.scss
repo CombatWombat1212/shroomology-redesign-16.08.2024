@@ -1,0 +1,55 @@
+$dashed-border-horizontal__value: repeating-linear-gradient(
+  to bottom,
+  var(--col),
+  var(--col) var(--dash-width),
+  transparent var(--dash-width),
+  transparent calc(var(--dash-width) + var(--gap-width))
+);
+
+
+$dashed-border-vertical__value: repeating-linear-gradient(
+  to right,
+  var(--col),
+  var(--col) var(--dash-width),
+  var(--col__negative) var(--dash-width),
+  var(--col__negative) calc(var(--dash-width) + var(--gap-width))
+);
+
+
+$dashed-border-vertical: $dashed-border-horizontal__value 1!important;
+
+
+$dashed-border-horizontal: $dashed-border-vertical__value 1!important;
+
+
+
+
+@mixin dashed-border__vertical {
+  border-image: $dashed-border-vertical;
+}
+
+@mixin dashed-border__horizontal {
+  border-image: $dashed-border-horizontal;
+}
+
+@mixin dashed-border-defaults {
+  --col: #{$col--primary};
+  --col__negative: transparent;
+  --dash-width: 20px;
+  --gap-width: 10px;
+  --border-width: 2px;
+}
+
+@mixin dashed-border($direction: vertical) {
+  @include dashed-border-defaults;
+
+  @if $direction == horizontal {
+    @include dashed-border__horizontal;
+    border-top-style: solid !important;
+    border-top-width: var(--border-width);
+  } @else {
+    @include dashed-border__vertical;
+    border-left-style: solid !important;
+    border-left-width: var(--border-width);
+  }
+}

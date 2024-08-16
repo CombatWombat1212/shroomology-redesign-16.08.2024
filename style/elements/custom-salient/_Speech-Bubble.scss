@@ -1,0 +1,127 @@
+$speech-bubble-tail: (
+  url: url("http://staging2.shroomologyworld.co/wp-content/uploads/speech-bubble-tail.svg"),
+  width: 95,
+  height: 53,
+);
+
+@mixin odd {
+  // if there is a root and not root + "--"
+
+  $root: ".speech-bubble";
+  $context: #{&};
+  $is-root: if(
+    str-index($context, $root) == 1 and not str-index($context, $root + "--"),
+    true,
+    false
+  );
+  $replacement: #{str-trim($root)}#{":nth-child(odd)"};
+
+  @if $is-root {
+    @at-root #{selector-replace($context, $root, $replacement)} {
+      @content;
+    }
+  } @else {
+    @at-root #{$replacement} & {
+      @content;
+    }
+  }
+}
+
+.speech-bubble {
+  &--row {
+    --speech-bubble--gap: 2rem;
+    --speech-bubble--padding: 2rem;
+    --speech-bubble--section-padding: 6rem;
+    --speech-bubble--tail-width: 4rem;
+    --speech-bubble--tail-padding: 3rem;
+
+    @include selector-repeat('[class*="row_col_wrap"]', 5) {
+      @include boot-gap-important(var(--speech-bubble--gap), var(--speech-bubble--gap));
+      @include flex-row-between;
+      padding: var(--speech-bubble--section-padding) !important;
+      -webkit-align-content: unset !important;
+      -ms-flex-line-pack: unset !important;
+      align-content: unset !important;
+
+      &::after {
+        content: unset !important;
+      }
+
+      @include xl-down {
+        --speech-bubble--section-padding: 5rem;
+      }
+      @include lg-down {
+        @include flex-col-center;
+        --speech-bubble--section-padding: 4rem;
+      }
+      @include md-down {
+        --speech-bubble--section-padding: var(--site--container-margin__px);
+      }
+    }
+  }
+
+  @include flex-col-center;
+  width: 35%;
+  @include xl-down {
+    width: 40%;
+  }
+  @include lg-down {
+    width: 50%;
+  }
+
+  align-self: flex-end;
+  transform-origin: calc(
+      0% + ((var(--speech-bubble--gap)) / 2) + var(--speech-bubble--tail-padding)
+    )
+    calc(100% - (var(--speech-bubble--gap)) / 2);
+
+  @include odd {
+    align-self: flex-start;
+    transform-origin: calc(
+        100% - ((var(--speech-bubble--gap)) / 2) - var(--speech-bubble--tail-padding)
+      )
+      calc(100% - (var(--speech-bubble--gap)) / 2);
+    position: relative;
+  }
+
+  @each $key, $value in $colors {
+    &.#{$key} {
+      --speech-bubble--background-color: #{$value};
+    }
+  }
+
+  .vc_column-inner {
+    padding: var(--speech-bubble--padding) !important;
+    background-color: var(--speech-bubble--background-color) !important;
+    @include b-rad;
+  }
+
+  &::after {
+    content: "";
+    position: relative;
+    width: var(--speech-bubble--tail-width);
+    height: auto;
+    top: -2px;
+    left: calc(var(--speech-bubble--tail-padding));
+    margin-right: auto;
+    visibility: unset;
+    transform: scale(-1, 1);
+
+    @include mask($speech-bubble-tail);
+    background-color: var(--speech-bubble--background-color);
+
+    @include odd {
+      margin-left: auto;
+      margin-right: unset;
+      left: unset;
+      transform: unset;
+      right: calc(var(--speech-bubble--tail-padding));
+    }
+  }
+
+  &--body {
+    @include text {
+      color: $col--white;
+    }
+  }
+}

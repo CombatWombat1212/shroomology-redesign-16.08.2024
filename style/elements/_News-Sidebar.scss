@@ -1,0 +1,43 @@
+// @mixin news-sidebar {
+//   .theiaStickySidebar {
+//     background-color: rgba($col--primary, 0.1);
+//     padding: 1rem !important;
+//   }
+
+//   .widget {
+//     margin: 0rem;
+//   }
+
+//   .widget_search {
+//     margin-bottom: 2rem;
+//   }
+
+//   .wp-block-heading,
+//   .wp-block-search__label {
+//     @extend %text--h6;
+//     font-weight: 600 !important;
+//     margin-bottom: 0.65rem;
+//     display: block;
+//   }
+
+//   .wp-block-archives-list {
+//     margin-bottom: 0rem;
+//   }
+
+//   .cat-item a,
+//   .wp-block-archives-list li a {
+//     @extend %text--body;
+//     color: $col--background;
+//     transition-duration: 0s !important;
+//     @include hover {
+//       text-decoration: underline;
+//     }
+//   }
+
+//   .wp-block-search__input {
+//     background-color: rgba($col--primary, 0.2);
+//     border-radius: 0rem !important;
+//     @extend %text--body;
+//     color: $col--background;
+//   }
+// }

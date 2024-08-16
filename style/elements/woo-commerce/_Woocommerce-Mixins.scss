@@ -1,0 +1,88 @@
+@mixin force-open-cart {
+  @at-root .widget_shopping_cart {
+    @include head-very-important {
+      display: block !important;
+      opacity: 1 !important;
+      top: 100% !important;
+      pointer-events: auto !important;
+      transform: none !important;
+      transition: none !important;
+
+      .widget_shopping_cart_content > * {
+        display: block !important;
+        opacity: 1 !important;
+        pointer-events: all !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}
+
+@mixin item-name {
+  @include text--body;
+  line-height: 125% !important;
+  font-family: $font-family--primary !important;
+  font-weight: 500 !important;
+
+  br {
+    display: none;
+  }
+}
+@mixin item-quantity {
+  @include text--body;
+  font-size: calc(var(--font-size--body) * 0.85) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+@mixin item-body {
+  @include text--body;
+  // font-weight: 400 !important;
+}
+@mixin item-subtotal {
+  @include text--body;
+  line-height: 125% !important;
+  font-family: $font-family--primary !important;
+  font-weight: 700 !important;
+}
+
+@mixin item-button {
+  &,
+  & * {
+    font-family: $font-family--primary !important;
+    font-size: calc(var(--font-size--body) * 0.85) !important;
+    text-transform: uppercase!important;
+  }
+  @include pad-x-important(1.15rem);
+  @include pad-y-important(0.5rem);
+}
+
+@mixin item-address {
+  @include very-important {
+    &,
+    & * {
+      @include item-body;
+      line-height: 160% !important;
+      font-weight: 400 !important;
+    }
+    & > * {
+      padding: 0rem !important;
+    }
+
+    & > * + * {
+      margin-top: 0rem !important;
+    }
+
+    & > [class*="woocommerce-customer-details--"] {
+      @include text--body;
+      font-weight: 400 !important;
+
+      padding-left: 3ch !important;
+    }
+
+    &::before {
+      font-size: var(--font-size--body) !important;
+      line-height: var(--line-height--body) !important;
+    }
+  }
+}

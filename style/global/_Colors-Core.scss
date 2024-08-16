@@ -1,0 +1,19 @@
+$colors: (
+  "cocoa": #1e0d09,
+  "rustic": #a24d0d,
+  "rustic__hovered": #863d05,
+  "haven": #50574f,
+  "petal": #c6b9b9,
+  "gray": #e0e0e0,
+  "white": #fff,
+  "black": #000,
+);
+
+$col--cocoa: map-get($colors, "cocoa");
+$col--rustic: map-get($colors, "rustic");
+$col--rustic__hovered: map-get($colors, "rustic__hovered");
+$col--haven: map-get($colors, "haven");
+$col--petal: map-get($colors, "petal");
+$col--gray: map-get($colors, "gray");
+$col--white: map-get($colors, "white");
+$col--black: map-get($colors, "black");

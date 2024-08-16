@@ -1,0 +1,84 @@
+@mixin section-inner {
+  @include selector-repeat('[class*="row_col"]', 1) {
+    @content;
+  }
+}
+
+#home {
+  &--hero {
+
+
+    .button{
+      transform: unset!important;
+      transition: unset!important;
+    }
+
+
+    @include section-row-col {
+      @include very-important {
+        * {
+          margin: 0rem;
+        }
+      }
+    }
+
+    h1 {
+      width: 16ch;
+      @include md-down {
+        width: 100%;
+      }
+      @extend %text--hero;
+      margin-bottom: 1.5rem !important;
+    }
+
+    h6 {
+      width: 40ch;
+      margin-bottom: 4rem !important;
+      @include md-down {
+        width: 100%;
+      }
+    }
+  }
+  &--logo-row {
+    --section--padding: 4rem;
+  }
+  &--pitch-1 {
+  }
+  &--pitch-2 {
+  }
+  &--pitch-3 {
+  }
+  &--highlights {
+  }
+  &--quality {
+    .split-section--heading {
+      margin-bottom: 1.25rem !important;
+      @include md-down {
+        margin-bottom: 1.5rem !important;
+      }
+    }
+    @include icon-with-text(2.25rem, 1.25rem, 1.25rem);
+  }
+  &--routine-intro {
+    --section--padding: 12rem;
+
+    .text--h1 {
+      max-width: 22ch;
+      @include mx-auto;
+    }
+  }
+  &--approaches {
+    --section--padding: 12rem;
+  }
+
+  &--accordion {
+    [class*="row_col"] {
+      padding-bottom: 1rem !important;
+    }
+  }
+
+  &--speech-bubbles {
+    margin-top: calc(var(--section--padding) * 1);
+    // margin-bottom: calc(var(--section--padding) * 1);
+  }
+}

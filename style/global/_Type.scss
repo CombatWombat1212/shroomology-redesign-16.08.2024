@@ -1,0 +1,105 @@
+@use "../utopia/utopia" as utopia;
+@import "Type-Core";
+@import "Fluid-Type";
+
+.text {
+  @each $key, $value in $text-styles {
+    &--#{$key} {
+      @include text-style($key, $value);
+    }
+  }
+}
+
+// Specific to Shroomology
+@mixin em-quiet {
+  &[quiet] {
+    color: darken($col--gray, 17.5)!important;
+  }
+}
+
+//TODO: Make this programatic as well
+p,
+.text--body * {
+  @extend %text--body;
+}
+
+h1,
+h1 *,
+.text--h1 * {
+  @extend %text--h1;
+}
+
+.text--h1__accent *,
+.text--h1 em,
+.text--h1 em *,
+h1 em,
+h1 em * {
+  @extend %text--h1__accent;
+  @include em-quiet;
+}
+
+h2,
+h2 *,
+.text--h2 * {
+  @extend %text--h2;
+}
+
+.text--h2__accent *,
+.text--h2 em,
+.text--h2 em *,
+h2 em,
+h2 em * {
+  @extend %text--h2__accent;
+  @include em-quiet;
+}
+
+h3,
+h3 *,
+.text--h3 * {
+  @extend %text--h3;
+}
+
+.text--h3__accent *,
+.text--h3 em,
+.text--h3 em *,
+h3 em,
+h3 em * {
+  @extend %text--h3__accent;
+  @include em-quiet;
+}
+
+h4,
+h4 *,
+.text--h4 * {
+  @extend %text--h4;
+}
+
+.text--h4__accent *,
+.text--h4 em,
+.text--h4 em *,
+h4 em,
+h4 em * {
+  @extend %text--h4__accent;
+  @include em-quiet;
+}
+
+h5,
+h5 *,
+.text--h5 * {
+  @extend %text--h5;
+}
+
+.text--h5__accent *,
+.text--h5 em,
+.text--h5 em *,
+h5 em,
+h5 em * {
+  @extend %text--h5__accent;
+  @include em-quiet;
+}
+
+h6,
+h6 *,
+.text--h6 * {
+  @extend %text--h6;
+}

@@ -1,0 +1,92 @@
+@mixin subheading-margin {
+  margin-bottom: 0.65rem !important;
+  @include lg-down {
+    margin-bottom: 0.35rem !important;
+  }
+
+  & > * {
+    margin: 0 !important;
+  }
+}
+
+@mixin heading-margin {
+  margin-bottom: 2rem !important;
+
+  @include lg-down {
+    margin-bottom: 0.65rem !important;
+  }
+
+  & > * {
+    margin: 0 !important;
+  }
+}
+
+.section-body {
+  &--subheading {
+    @include subheading-margin;
+  }
+
+  &--heading {
+    @include heading-margin;
+  }
+
+  &--text {
+  }
+
+  .divider-wrap {
+    @include marg-y-important(2rem);
+  }
+
+  .divider-border {
+    background-color: unset !important;
+    @include dashed-border-defaults;
+    background-image: $dashed-border-vertical__value;
+    margin: 0 !important;
+  }
+
+  --text-icon-pad: 2rem;
+  --text-icon-width: 4rem;
+
+  &--text-icon-row {
+    @include marg-x-important(calc(var(--text-icon-pad) * -1));
+    padding-top: 0.85rem;
+
+    [class*="row_col_wrap"] {
+      row-gap: var(--text-icon-pad);
+    }
+  }
+
+  &--text-icon-col {
+    @include pad-x-important(var(--text-icon-pad));
+
+    @include text {
+      margin-bottom: 0rem;
+      color: $col--primary !important;
+    }
+
+    .iwt-text,
+    .iwt-icon {
+    }
+
+    .iwithtext {
+      @include flex-row;
+    }
+
+    .iwt-text {
+      // padding-left: calc(var(--text-icon-width) + var(--text-icon-pad) * 0.65) !important;
+      padding-left: calc(var(--text-icon-pad) * 0.65) !important;
+      @include flex-col-center;
+    }
+
+    .iwt-icon {
+      @include flex-col;
+      height: 100%;
+      position: unset !important;
+      img {
+        @include my-auto;
+        width: var(--text-icon-width) !important;
+        min-width: var(--text-icon-width) !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+#how-to--hero .hero--col > .vc_column-inner > .wpb_wrapper > * {
+  @include hide-until-load('#how-to--hero .hero--col > .vc_column-inner > .wpb_wrapper > *');
+}
+
+#how-to {
+  &--hero {
+    .button {
+      transform: unset !important;
+      transition: unset !important;
+    }
+
+    @include section-row-col {
+      @include very-important {
+        * {
+          margin: 0rem;
+        }
+      }
+    }
+
+    .wpb_wrapper {
+      & > .wpb_text_column {
+        margin-bottom: -20px !important;
+      }
+      width: 13ch;
+      @include md-down {
+        width: 100%;
+      }
+
+      em {
+        color: #a8754a !important;
+        opacity: 1 !important;
+      }
+      @extend %text--hero;
+      margin-bottom: 1.5rem !important;
+    }
+
+    form {
+      margin-top: 3rem !important;
+
+      width: 60%;
+      @include lg-down {
+        width: 100%;
+      }
+
+      &,
+      & * {
+        @include text--body;
+        font-weight: 400 !important;
+      }
+      .row.first-last {
+        &::before,
+        &::after {
+          display: none !important;
+          content: none !important;
+        }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        @include md-down {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      label {
+        @include item-name;
+        span {
+          margin-top: 0.25rem !important;
+        }
+      }
+
+      .wpcf7-submit {
+        margin-top: 1rem !important;
+        @extend %button;
+      }
+    }
+  }
+}

@@ -1,0 +1,317 @@
+// @use "../utopia/utopia" as utopia;
+// @import "Functions";
+// @import "Breakpoints";
+
+// // TODO: Also Make This Programatic in combination Type and Type-Core
+
+// $fluid-min: 690;
+// $fluid-max: 1300;
+
+
+// // I'd really love to add this but for now its non-functional
+
+// // match utopia scaling or linear scaling
+// $linear-interpolation: false; //utopia
+// // $linear-interpolation: true; //linear
+
+
+
+// // this comes from _Type-Core.scss
+// // $font-subtypes: ("accent");
+
+// // $text-styles: (
+// //   "h1": (
+// //     "font-family": $font-family--primary,
+// //     "font-weight": 500,
+// //     "font-size": (40, 68),
+// //     "accent": (
+// //       "font-family": $font-family--primary,
+// //       "font-weight": 400,
+// //       "font-size": (40, 78),
+// //       "font-style": italic,
+// //     ),
+// //   ),
+// //   "h2": (
+// //     "font-family": $font-family--primary,
+// //     "font-weight": 600,
+// //     "font-size": (32, 55),
+// //     "accent": (
+// //       "font-family": $font-family--primary,
+// //       "font-weight": 400,
+// //       "font-size": (31, 65),
+// //       "font-style": italic,
+// //     ),
+// //   ),
+// //   "h3": (
+// //     "font-family": $font-family--primary,
+// //     "font-weight": 600,
+// //     "font-size": (28, 43),
+// //     "accent": (
+// //       "font-family": $font-family--primary,
+// //       "font-weight": 400,
+// //       "font-size": (26, 53),
+// //       "font-style": italic,
+// //     ),
+// //   ),
+// //   "h4": (
+// //     "font-family": $font-family--primary,
+// //     "font-weight": 500,
+// //     "font-size": (24, 35),
+// //     "accent": (
+// //       "font-family": $font-family--primary,
+// //       "font-weight": 400,
+// //       "font-size": (21, 45),
+// //       "font-style": italic,
+// //     ),
+// //   ),
+// //   "h5": (
+// //     "font-family": $font-family--primary,
+// //     "font-weight": 500,
+// //     "font-size": (20, 28),
+// //     "accent": (
+// //       "font-family": $font-family--primary,
+// //       "font-weight": 400,
+// //       "font-size": (18, 30),
+// //       "font-style": italic,
+// //     ),
+// //   ),
+// //   "h6": (
+// //     "font-family": $font-family--secondary,
+// //     "font-weight": 400,
+// //     "font-size": (15, 22.5),
+// //   ),
+// //   "body": (
+// //     "font-family": $font-family--secondary,
+// //     "font-weight": 300,
+// //     "font-size": (16, 16.5),
+// //     "line-height": 150%,
+// //   ),
+// // );
+
+// @mixin fluid-type {
+//   // create a flat map of types, and their subtypes, in this case that's just "accent", but still map through it
+//   $text-flatmap: ();
+
+//   // if the type's $styles contains a key of one of the $font-subtypes, then extract it into a map entry
+//   // add the original type: styles to the flatmap with its subtype removed
+//   // then add the subtype: styles to the flatmap
+//   @each $type, $styles in $text-styles {
+//     @each $subtype in $font-subtypes {
+//       @if map-has-key($styles, $subtype) {
+//         $text-flatmap: map-merge($text-flatmap, (#{$type}: map-remove($styles, $subtype)));
+//         $text-flatmap: map-merge(
+//           $text-flatmap,
+//           (#{$type}__#{$subtype}: map-get($styles, $subtype))
+//         );
+//       } @else {
+//         $text-flatmap: map-merge($text-flatmap, (#{$type}: $styles));
+//       }
+//     }
+//   }
+
+//   $prefixes: ();
+//   $pairs: ();
+
+//   // widdle pairs down to just the font-size pairs, don't add items that dont have a font-size
+//   @each $type, $styles in $text-flatmap {
+//     // @if map-has-key($styles, "font-size") and its a map and not a single value
+//     @if map-has-key($styles, "font-size") and type-of(map-get($styles, "font-size")) == "list" {
+//       $prefixes: append($prefixes, #{font-size--}#{unquote($type)});
+//       $pairs: append($pairs, (map-get($styles, "font-size")));
+//     }
+//   }
+
+//   @supports (font-size: Clamp(3.75rem, calc(2.0533rem + 3.9344vi), 5.25rem)) {
+//     @include utopia.generateClamps(
+//       (
+//         "minWidth": $fluid-min,
+//         "maxWidth": $fluid-max,
+//         "pairs": $pairs,
+//         "prefix": $prefixes,
+//         useRem: true,
+//       )
+//     );
+//   }
+
+
+
+
+//   @supports not (font-size: Clamp(3.75rem, calc(2.0533rem + 3.9344vi), 5.25rem)) {
+
+
+//     $subtractor: 0.0625rem;
+    
+  
+//     // Sort biggest to smallest, then add "root" to the beginning
+//     $ordered-breakpoints: create-ordered-breakpoints($grid-breakpoints);
+  
+//     // Initialize $step-values with the ordered breakpoints map for each prefix
+//     $step-values: ();
+//     @each $prefix in $prefixes {
+//       $step-values: map-merge($step-values, ($prefix: $ordered-breakpoints));
+//     }
+
+//     // Initialize $step-values with breakpoints
+//     @each $prefix in $prefixes {
+//       $breakpoint-values: ();
+//       @each $breakpoint, $value in $grid-breakpoints {
+//         @if not is-zero-unit($value) {
+//           $breakpoint-values: map-merge($breakpoint-values, ($breakpoint: 0));
+//         }
+//       }
+//       @if not is-empty-map($breakpoint-values) {
+//         $step-values: map-merge($step-values, ($prefix: map-merge(map-get($step-values, $prefix), $breakpoint-values)));
+//       }
+//     }
+
+
+
+
+//   // Interpolate and update $step-values with root and smallest breakpoint values
+//   $index: 0;
+//   @each $prefix, $values in $step-values {
+//     $index: $index + 1;
+
+
+//     @each $bp, $value-at-bp in $values {
+
+//       $min-value: nth(nth($pairs, $index), 1);
+//       $max-value: nth(nth($pairs, $index), 2);
+//       $last-breakpoint: get-last-key($values);
+
+      
+//     // Initialize root and smallest breakpoint values
+//     $values: map-merge($values, (root: $max-value, $last-breakpoint: $min-value));
+
+//     // Interpolate other breakpoint values
+//     @each $bp, $value-at-bp in $values {
+//       @if $bp != "root" and $bp != $last-breakpoint {
+//         $breakpoint-value: to-unitless(map-get($grid-breakpoints, $bp));
+//         $interpolated-value: interpolate($min-value, $max-value, $breakpoint-value, $fluid-min, $fluid-max);
+//         $values: map-merge($values, ($bp: $interpolated-value));
+//       }
+//     }
+
+//     // Merge the updated values back into step-values
+//     $step-values: map-merge($step-values, ($prefix: $values));
+//     }
+
+//   }
+  
+//   // Convert $step-values to rem
+//   $step-values-rem: ();
+
+//   @each $prefix, $values in $step-values {
+//     $rem-values: ();
+//     @each $bp, $value-at-bp in $values {
+//       $rem-value: $value-at-bp / 16 + rem;
+//       $rem-values: map-merge($rem-values, ($bp: $rem-value));
+//     }
+//     $step-values-rem: map-merge($step-values-rem, ($prefix: $rem-values));
+//   }
+
+
+// $breakpoint-properties: ();
+
+// // Loop through $step-values-rem to collect font-size properties for each breakpoint
+// @each $prefix, $values in $step-values-rem {
+//   @each $bp, $value-at-bp in $values {
+//     // Get the existing map for the breakpoint or initialize an empty map
+//     $bp-properties: map-get($breakpoint-properties, $bp);
+//     @if $bp-properties == null {
+//       $bp-properties: ();
+//     }
+//     // Merge the current prefix and value into the breakpoint map
+//     $bp-properties: map-merge($bp-properties, ($prefix: $value-at-bp));
+//     // Update the $breakpoint-properties map with the new values
+//     $breakpoint-properties: map-merge($breakpoint-properties, ($bp: $bp-properties));
+//   }
+// }
+
+// @each $breakpoint,
+// $properties in $breakpoint-properties {
+
+
+//   @if $breakpoint=="root" {
+
+//     @each $type-name,
+//     $font-size in $properties {
+//       --#{$type-name}: #{$font-size};
+//     }
+//   }
+
+//   @else {
+//     $bp-value: to-unitless(map-get($grid-breakpoints, $breakpoint));
+//     $bp-value-rem: $bp-value / 16;
+//     $bp-value-final: #{$bp-value-rem - $subtractor};
+
+//     @media screen and (max-width: $bp-value-final) {
+
+//       @each $type-name,
+//       $font-size in $properties {
+//         --#{$type-name}: #{$font-size};
+//       }
+//     }
+//   }
+// }
+
+//   }
+// }
+
+
+
+
+// @function create-ordered-breakpoints($breakpoints) {
+//   $ordered-breakpoints: (root: 0);
+//   @each $key, $value in reverse-map($breakpoints) {
+//     @if not is-zero-unit($value) {
+//       $ordered-breakpoints: map-merge($ordered-breakpoints, ($key: 0));
+//     }
+//   }
+//   @return $ordered-breakpoints;
+// }
+
+
+// @function convert-number-map-to-rem($pairs) {
+//   $pairs-rem: ();
+//   @each $pair in $pairs {
+//     $rem-pair: ();
+//     @each $value in $pair {
+//       $rem-value: $value / 16 + rem;
+//       $rem-pair: append($rem-pair, $rem-value);
+//     }
+//     $pairs-rem: append($pairs-rem, $rem-pair);
+//   }
+//   @return $pairs-rem;
+// }
+
+
+// @function interpolate($min-value, $max-value, $breakpoint, $fluid-min, $fluid-max) {
+//   $interpolated-value: $min-value + (($breakpoint - $fluid-min) / ($fluid-max - $fluid-min)) * ($max-value - $min-value);
+
+//   // Clamp the interpolated value between min-value and max-value
+//   @if $interpolated-value > $max-value {
+//     @return $max-value;
+//   } @else if $interpolated-value < $min-value {
+//     @return $min-value;
+//   } @else {
+//     @return $interpolated-value;
+//   }
+// }
+
+
+
+
+
+
+
+
+// :root {
+//   @include fluid-type;
+// }
+
+
+
+
+
+

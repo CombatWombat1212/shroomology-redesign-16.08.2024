@@ -1,0 +1,154 @@
+.footer {
+
+
+    @include lg-down {
+        @include very-important {
+          padding-top: 5rem !important;
+        }
+      }
+  
+
+
+  .inner_row {
+    @include lg-down {
+      @include very-important {
+        padding-bottom: 0rem !important;
+      }
+    }
+  }
+
+  &--logo-col {
+    [class*="row_col"] {
+      @include lg-down {
+        padding: 0rem !important;
+        @include mx-auto;
+      }
+    }
+
+    .hover-wrap-inner.img-loaded {
+      width: 65%;
+      img {
+        @include img-contain-important;
+      }
+      @include lg-down {
+        width: 50% !important;
+        @include mx-auto-important;
+      }
+      @include md-down {
+        width: 85% !important;
+      }
+      @include sm-down {
+        width: 100% !important;
+      }
+    }
+  }
+
+  &--follow-col {
+    & > * {
+      transform: none !important;
+    }
+
+    @include very-important {
+      * {
+        margin: 0rem;
+      }
+    }
+
+    @include text {
+      color: $col--white !important;
+    }
+
+    .wpb_wrapper {
+      text-align: center;
+      @include flex-col;
+      align-items: center;
+    }
+
+    .inner {
+      background-color: $col--white;
+      @include s;
+      --size: 2rem;
+      transition: 0.2s !important;
+      transform: scale(1);
+      @include hover {
+        transform: scale(1.1);
+        filter: brightness(0.9);
+      }
+
+      & > * {
+        @include img-contain-important;
+      }
+    }
+
+    a[href*="@"] {
+      transition: 0.2s;
+      @include hover {
+        filter: brightness(0.8);
+      }
+    }
+  }
+
+  &--contact {
+    @include very-important {
+      *:not(input) {
+        margin: 0rem;
+        padding: 0rem;
+      }
+    }
+
+    .vc_column-inner {
+      padding: 1.75rem !important;
+
+      .newsletter p:first-child {
+        margin-bottom: 1rem !important;
+        span {
+          @extend %text--h5;
+          text-transform: capitalize !important;
+          color: $col--cocoa;
+        }
+      }
+      .newsletter p:nth-child(2) {
+        margin-bottom: 0.95rem !important;
+      }
+
+      [type="email"] {
+        @extend %text--body;
+      }
+
+      [type="submit"] {
+        @extend %button;
+        @extend %button__tertiary;
+        @include very-important {
+          @include pad-y-important(0.55rem);
+        }
+      }
+    }
+  }
+
+  [class*="footer"][class*="col"] {
+    @include lg-down {
+      @include very-important {
+        margin-bottom: 6rem !important;
+        &:first-child {
+            margin-bottom: 4.5rem !important;
+        }
+      }
+    }
+  }
+
+  &--follow-text {
+    @extend %text--body;
+    font-style: italic;
+    text-transform: uppercase !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  &--contact-text {
+    @extend %text--body;
+    font-style: italic;
+    text-transform: uppercase !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.25rem !important;
+    transition: 0.2s;
+  }
+}

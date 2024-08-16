@@ -1,0 +1,30 @@
+@mixin document-buttons($selector-preface: ".dlp-table-document-link-wrap") {
+  @include marg-x-important(-10px);
+
+  & > *.button {
+    margin: 0rem !important;
+    @include marg-x-important(10px);
+
+    opacity: 1 !important;
+    background-color: rgba($col--primary, 1) !important;
+    border: solid 2px rgba($col--primary, 0);
+
+    @include hover {
+      background-color: rgba($col--primary, 0) !important;
+      border: solid 2px rgba($col--primary, 1);
+    }
+
+    &,
+    & > * {
+      color: $col--tertiary;
+      @at-root {
+        #{$selector-preface} .button:hover,
+        #{$selector-preface} .button:focus,
+        #{$selector-preface} .button:hover > *,
+        #{$selector-preface} .button:focus > * {
+          color: $col--primary !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../node_modules/font-face-generator/mixin";
+$font-path: "https://staging2.shroomologyworld.co/wp-admin/fonts";
+
+@include font-face(
+  $fonts: (
+    "Loretta": (
+      300 800: (normal: "Loretta", italic: "Loretta-Italic"),
+    ),
+  ),
+  $types: (
+    "woff2",
+    "woff",
+    "otf",
+  ),
+  $path: $font-path
+);
+
+@include font-face(
+  $fonts: (
+    "Gill Sans": (
+      400: (
+        normal: "Gill Sans",
+        italic: "Gill Sans Italic",
+      ),
+      300: (
+        normal: "Gill Sans Light",
+        italic: "Gill Sans Light Italic",
+      ),
+      500: (
+        normal: "Gill Sans Medium",
+        italic: "Gill Sans Medium Italic",
+      ),
+    ),
+  ),
+  $types: (
+    "otf",
+  ),
+  $path: $font-path
+);

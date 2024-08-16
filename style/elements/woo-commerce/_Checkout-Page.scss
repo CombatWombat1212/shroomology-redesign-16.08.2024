@@ -1,0 +1,166 @@
+.woocommerce-form-coupon-toggle {
+  @at-root {
+    .woocommerce-form-coupon-toggle .woocommerce-info,
+    .cart-empty,
+    .woocommerce-error
+    {
+      @include very-important {
+        border-radius: 0.5rem !important;
+        overflow: hidden !important;
+      }
+      &,
+      & * {
+        @include very-important {
+          @include item-body;
+          font-weight: 400 !important;
+          // opacity: 0.25 !important;
+        }
+      }
+    }
+  }
+}
+
+.woocommerce-checkout {
+  --product--image-size: 5rem;
+
+  h3 {
+    &,
+    & * {
+      @include very-important {
+        @include text--h4;
+        // opacity: 0.25 !important;
+        line-height: 110% !important;
+      }
+    }
+  }
+
+  label {
+    @include very-important {
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  label,
+  .acfw-accordion-title,
+  .order-review th {
+    &,
+    & * {
+      @include very-important {
+        @include item-name;
+        font-weight: 600 !important;
+        // opacity: 0.25 !important;
+      }
+    }
+  }
+
+  input,
+  select,
+  label.checkbox,
+  textarea,
+  .payment_box,
+  .order-review td,
+  .acfw-store-credit-user-balance,
+  .acfw-store-credit-instructions {
+    &,
+    & * {
+      @include very-important {
+        @include item-body;
+        font-weight: 400 !important;
+        // opacity: 0.25 !important;
+      }
+    }
+
+    strong {
+      @include very-important {
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  //   flat rate label
+  li label[for*="flat_rate"] {
+    @include very-important {
+      @include item-quantity;
+      font-weight: 500 !important;
+    }
+  }
+
+  //   final total
+  tr.order-total strong .amount *,
+  .acfw-store-credit-user-balance .amount,
+  .acfw-store-credit-user-balance .amount span {
+    @include very-important {
+      @include item-body;
+      font-weight: 600 !important;
+    }
+  }
+
+  .product-info {
+    gap: 1.5rem;
+    * {
+      @include very-important {
+        @include item-name;
+      }
+    }
+  }
+
+  .product-quantity {
+    @include very-important {
+      margin-top: 0.35rem;
+      @include item-quantity;
+    }
+  }
+
+  .product-image {
+    margin-bottom: auto;
+  }
+
+  .product-image a {
+    @include very-important {
+      width: var(--product--image-size) !important;
+      height: var(--product--image-size) !important;
+      @include flex-col-center;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      img {
+        @include img-cover;
+      }
+    }
+  }
+
+  button[type="submit"] {
+    @include very-important {
+      @extend %button;
+    }
+  }
+
+  #acfw_redeem_store_credit {
+    .acfw_coupon_btn_wrap {
+      @include very-important {
+        margin-bottom: 0rem;
+      }
+    }
+
+    //   redeem store credit button
+    button {
+      @include very-important {
+        @extend %button;
+        @extend %button__tertiary;
+        @include item-button;
+      }
+    }
+
+    // weird gap above it
+    .acfw-form-control-label,
+    label[for*="coupon_code"] {
+      display: none;
+    }
+  }
+
+
+  .product-container{
+    background-color: rgba(0,0,0,.035)!important;
+    border-radius: 0.5rem;
+  }
+}

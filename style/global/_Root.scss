@@ -1,0 +1,100 @@
+$col--background: $col--gray;
+$inf: 1000000rem;
+
+:root {
+  --transition: 0.1s;
+  --border-width: 0.125rem;
+
+  --border-radius: 1.5rem;
+  --section--inner-gap: 8rem;
+  --section--padding: 8rem;
+  --section--padding__small: 3rem;
+  
+  @include xl-down {
+    --section--inner-gap: 4rem;
+  }
+  @include lg-down {
+    --section--padding: 6rem;
+    --section--inner-gap: 2rem;
+  }
+
+  --wp--style--global--content-size: var(--site-max-width) !important;
+
+  // --mobile-container-width: 88%; //Salient default
+
+  // --site-max-width: 1650px;
+
+  // @include lg-down {
+  //   --mobile-container-width: 70% !important;
+  // }
+  // @include sm-down {
+  //   --mobile-container-width: 88% !important;
+  // }
+}
+
+:root {
+  $bp: "";
+
+  @each $key, $val in $grid-breakpoints {
+    @if ($key !=nth(nth($grid-breakpoints, -1), 1)) {
+      $bp: $bp + "#{$key}"+", ";
+    } @else {
+      $bp: $bp + "#{$key}";
+    }
+  }
+
+  $bp: $bp + "";
+
+  --breakpoints: #{$bp};
+}
+
+:root {
+  @each $key, $val in $grid-breakpoints {
+    --#{$key}: #{$val};
+  }
+}
+
+body {
+  background-color: $col--background !important;
+  overflow: unset !important;
+}
+.ocm-effect-wrap,
+.container-wrap,
+.nectar-global-section {
+  background-color: $col--background !important;
+}
+
+.overflow__ellipsis {
+  height: var(--rounded-height);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--visible-lines);
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.no-scroll {
+  overflow: hidden;
+  // overflow: -moz-hidden-unscrollable;
+  // touch-action: none;
+}
+
+.scrollauto {
+  scroll-behavior: auto !important;
+  // * {
+  //   scroll-behavior: auto !important;
+  // }
+}
+
+.nobr,
+[nobr] {
+  white-space: nowrap;
+}
+
+.cursor-grabbed {
+  cursor: grabbing !important;
+}
+
+.cursor-ew-resize {
+  cursor: ew-resize !important;
+}

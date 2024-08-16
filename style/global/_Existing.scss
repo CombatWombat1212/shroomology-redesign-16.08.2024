@@ -1,0 +1,103 @@
+.wpcf7-form-control.wpcf7-submit.has-spinner.fullbut {
+  /* Your CSS styles here */
+
+  width: 100% !important;
+}
+
+.popupsign .nectar-wpcf7-inline-form.nectar-wpcf7-rounded-form.mobile-1-col {
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+}
+
+@media only screen and (max-width: 999px) {
+  .popupsign .nectar-wpcf7-inline-form.mobile-1-col .nectar-wpcf7-inline-field {
+    width: 100%;
+    padding-bottom: 0em;
+    padding-right: 0;
+  }
+}
+
+.material .wpcf7-form .nectar-wpcf7-inline-form {
+  padding-bottom: 1.5em;
+  padding-top: 0px;
+}
+
+.woocommerce ul.products li.product .price del,
+.woocommerce-page ul.products li.product .price del {
+  font-size: 0.67em;
+  color: red !important;
+  display: inline;
+}
+
+/*off canvas menu container - add extra*/
+#slide-out-widget-area .off-canvas-menu-container {
+  padding: 0 25%;
+}
+
+/*shop button in menu*/
+.menu-title-text {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 15px;
+}
+
+@media (min-width: 1024px) {
+  .single-product div.product h1.product_title {
+    font-size: 6vw;
+    line-height: 7vw;
+  }
+}
+
+@media (min-width: 1px) and (max-width: 1024px) {
+  .single-product div.product h1.product_title {
+    font-size: 11vw;
+    line-height: 13vw;
+  }
+}
+
+.wt-coupon-content {
+  // font-family: "Typographica" !important;
+  // text-transform: lowercase !important;
+}
+
+.wt-coupon-code code {
+  font-size: 46px !important;
+  opacity: 1 !important;
+  font-family: "Typographica" !important;
+}
+
+code {
+  padding: 5% !important;
+  margin-bottom: 0 !important;
+}
+
+.woocommerce ul.products li.product .onsale {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #ff0000; /* Red background */
+  color: #fff; /* White text */
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0; /* Adjust padding as needed */
+}
+
+/*shipping labels*/
+
+.woocommerce ul#shipping_method li label {
+  display: inline;
+  font-size: 14px !important;
+}
+
+
+@font-face {
+  font-family: 'Typographica';
+  src: url('/wp-content/themes/salient-child/fonts/typographica.woff2') format('woff2'),
+       url('/wp-content/themes/salient-child/fonts/typographica.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+

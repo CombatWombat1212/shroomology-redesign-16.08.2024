@@ -1,0 +1,279 @@
+.woocommerce-cart-form {
+  --table--img-size: 5rem;
+
+  // zoom:1.25;
+
+  // product thumbnail cell
+
+  td.product-thumbnail {
+    a {
+      @include very-important {
+        width: var(--table--img-size) !important;
+        height: var(--table--img-size) !important;
+
+        border-radius: 0.5rem !important;
+        overflow: hidden !important;
+
+        img {
+          @include img-cover;
+        }
+      }
+    }
+  }
+
+  // Table labels
+  .shop_table th {
+    @include very-important {
+      // @include text--body;
+      padding-left: 20px !important;
+      @include item-body;
+      font-weight: 400 !important;
+
+      @include item-subtotal;
+    }
+  }
+
+  // product name cell
+  td.product-name {
+    a {
+      @include very-important {
+        @include item-name;
+      }
+    }
+  }
+
+  // product price cell
+  td.product-price {
+    &,
+    & * {
+      @include very-important {
+        @include item-body;
+      }
+    }
+  }
+
+  // product subtotal cell
+  td.product-subtotal {
+    &,
+    & * {
+      @include very-important {
+        @include item-body;
+      }
+    }
+  }
+
+  td.product-quantity {
+    [type="number"] {
+      @include very-important {
+        @include item-body;
+      }
+    }
+  }
+
+  // coupon input
+  input[name="coupon_code"] {
+    @include very-important {
+      @include item-body;
+    }
+  }
+  // coupon button
+  button[name="apply_coupon"] {
+    @include very-important {
+      @extend %button;
+      @extend %button__secondary;
+
+      margin-left: 0.5rem;
+
+      @include item-button;
+    }
+  }
+
+  // update card button
+  button[name="update_cart"] {
+    @include very-important {
+      @extend %button;
+
+      @include item-button;
+
+      &[disabled] {
+        opacity: 0.5 !important;
+        pointer-events: none !important;
+      }
+    }
+  }
+}
+// cart totals title
+.cart-collaterals {
+  --panel--padding: 20px;
+
+  .cart_totals h2 {
+    @include very-important {
+      @extend %text--h4;
+    }
+  }
+
+  .cart_totals th {
+    @include very-important {
+      @include item-subtotal;
+    }
+  }
+
+  // subtotal cell
+  td[data-title="Subtotal"] {
+    @include very-important {
+      @include item-body;
+    }
+  }
+
+  // shipping cell
+  td[data-title="Shipping"] {
+    padding: var(--panel--padding);
+    // label outer subheadings
+    label,
+    [class*="destination"] {
+      @include very-important {
+        @include item-quantity;
+        font-weight: 500 !important;
+      }
+    }
+
+    //flat rate label
+    [for*="flat_rate"] > span,
+    [class*="destination"] strong {
+      padding-top: 0.25rem;
+      &::before {
+        content: "\A";
+        display: block;
+      }
+    }
+
+    .amount,
+    [class*="destination"] strong {
+      @include very-important {
+        &,
+        & * {
+          @include item-body;
+        }
+      }
+    }
+
+    [class*="destination"] {
+      margin-top: 1.25rem;
+    }
+  }
+
+  // adjust shipping dropdown button
+  .woocommerce-shipping-calculator {
+    @include very-important {
+      @include item-body;
+      // position: relative;
+
+      .shipping-calculator-button {
+        @include flex-row;
+        white-space: nowrap;
+        align-items: center;
+
+        margin: calc(var(--panel--padding) * -1);
+        margin-top: 0rem;
+        padding: var(--panel--padding);
+        background-color: darken(#d9d9d9, 5);
+        z-index: 1;
+
+        &:hover,
+        &:focus {
+          background-color: darken(#d9d9d9, 10);
+
+          // &::before {
+          //   transform: scale(1, -1);
+          // }
+        }
+
+        &::before {
+          content: "⏷";
+          width: 100%;
+          order: 10;
+          margin-right: auto;
+          z-index: 2;
+          text-align: right;
+        }
+      }
+    }
+
+    .form-row {
+      * {
+        @include very-important {
+          @include item-body;
+        }
+      }
+
+      & + .form-row {
+        margin-top: 0.75rem;
+      }
+
+      @include very-important {
+        padding: 0rem;
+      }
+    }
+
+    button[type*="submit"] {
+      @include very-important {
+        @extend %button;
+        @extend %button__secondary;
+        width: 100%;
+
+        @include item-button;
+      }
+    }
+  }
+
+  // subtotal cell
+  td[data-title="Subtotal"] {
+    * {
+      @include very-important {
+        @include item-body;
+      }
+    }
+  }
+
+  // tax cell
+  td[data-title="Tax"] {
+    * {
+      @include very-important {
+        @include item-body;
+      }
+    }
+  }
+
+  // total cell
+  td[data-title="Total"] {
+    * {
+      @include very-important {
+        @include item-body;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  // proceed to checkout button
+  .wc-proceed-to-checkout a {
+    @include very-important {
+      @extend %button;
+
+      // @include item-button;
+      width:100%;
+    }
+  }
+}
+
+
+
+.return-to-shop{
+  
+  .button{
+    @include very-important {
+      @extend %button;
+      @include item-button;
+    }
+  }
+
+}

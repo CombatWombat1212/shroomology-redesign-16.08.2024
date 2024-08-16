@@ -1,0 +1,100 @@
+// #accordion {
+//   counter-reset: toggle-counter;
+
+//   h3 * {
+//     transition: color 0.2s;
+//     color: var(--col--primary__light) !important;
+
+//     @include md-down {
+//       @include text--h4;
+//     }
+
+//     @at-root #accordion .toggle.open h3 * {
+//       color: var(--col--background) !important;
+//       @extend %text--h3__accent;
+//     }
+//   }
+
+//   .toggle {
+//     --dash-width: 20px;
+//     --gap-width: 10px;
+//     --border-width: 2px;
+//     --col: #{rgba($col--primary__light, 0.25)};
+//     position: relative;
+
+//     border-bottom: solid #{rgba($col--primary__light, 0)} var(--border-width);
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+
+//       border-bottom: solid #{rgba($col--primary__light, 0)} var(--border-width);
+//       border-image: repeating-linear-gradient(
+//           to right,
+//           var(--col),
+//           var(--col) var(--dash-width),
+//           transparent var(--dash-width),
+//           transparent calc(var(--dash-width) + var(--gap-width))
+//         )
+//         1;
+
+//       @at-root {
+//         &.open {
+//           --col: #{rgba($col--primary__light, 0)} !important;
+//         }
+//         #accordion .toggle:last-child::before {
+//           --col: #{rgba($col--primary__light, 0)} !important;
+//         }
+//         #accordion .toggle:has(+ .toggle.open)::before {
+//           --col: #{rgba($col--primary__light, 0)} !important;
+//         }
+//       }
+
+//       height: 100%;
+//       width: var(--screen-width);
+//       top: 0%;
+//       left: calc(((var(--screen-width) - var(--container-width)) / 2) * -1);
+//       z-index: -1;
+
+//       background-color: $col--background;
+//       transition: 0.2s;
+
+//       @at-root #accordion .toggle.open::before {
+//         background-color: $col--primary__light;
+//       }
+//     }
+//   }
+
+//   .fa-plus-circle {
+//     border-color: var(--col--primary__light) !important;
+//     &::before,
+//     &::after {
+//       background-color: var(--col--primary__light) !important;
+//     }
+//   }
+//   .toggle-title a {
+//     counter-increment: toggle-counter;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+
+//     @include md-down {
+//       flex-direction: column;
+//       align-items: unset;
+//     }
+
+//     &::before {
+//       content: counter(toggle-counter, decimal-leading-zero) " ";
+//       display: inline-block;
+//       @extend %text--h6;
+//       color: $col--secondary !important;
+//       font-style: normal !important;
+//       width: 3ch;
+//       min-width: 3ch;
+
+//       @include md-down {
+//         margin-bottom: 0.65rem;
+//       }
+//     }
+//   }
+// }

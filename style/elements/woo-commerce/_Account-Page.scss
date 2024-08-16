@@ -1,0 +1,136 @@
+#account--row {
+  h1 {
+    &,
+    & * {
+      @include text--h1;
+    }
+  }
+
+  //   sidebar panel
+  nav[class*="MyAccount"] {
+    //   all sidebar links
+    a {
+      @include text--body;
+    }
+  }
+
+  th.woocommerce-orders-table__header,      //  orders tab table headers
+  #acfwf_store_credits_app th,              //  store credits table headers
+  [for="username"],[for="password"],         //  login form labels
+  label         //  all
+  {
+    &,
+    & * {
+      @include very-important {
+        @include item-name;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  td.woocommerce-orders-table__cell,        // orders tab table cells
+  .ant-empty-description,                   // Store credits empty table message
+  .woocommerce-Input--text, .woocommerce-Input--email,                  // Input fields  
+  .woocommerce-Input,                  // Input fields  
+  label[for="rememberme"],                   // login remember checkbox  
+  .woocommerce-LostPassword,                   // forgot password
+  .woocommerce-form-row  input + span                 // labels underneath inputs
+  {
+    &,
+    & * {
+      @include item-quantity;
+    }
+  }
+
+  address {
+    @include item-address;
+  }
+
+  label {
+    margin-bottom: 0.35rem !important;
+  }
+
+  .woocommerce-form-row {
+    margin-bottom: 1.25rem;
+  }
+
+  button[name*="login"]                //Login button on login page
+  {
+    @include item-button;
+    @extend %button;
+  }
+
+  a.edit // a tag links, addresses page edit address
+  {
+    @include item-body;
+    font-weight: 400 !important;
+    color: $col--rustic;
+    text-decoration: underline !important;
+
+    @include hover {
+      color: $col--rustic__hovered;
+    }
+  }
+
+  //   buttons
+  #acfw-store-credits-my-account .button,
+  .woocommerce-Button {
+    @include item-button;
+    @extend %button;
+  }
+
+  //store credits continue shopping button
+  #acfw-store-credits-my-account .button {
+    margin-bottom: 2rem;
+  }
+
+  //   action buttons on orders table
+  .woocommerce-orders-table .woocommerce-orders-table__cell-order-actions {
+    @include very-important {
+      padding: 0rem !important;
+    }
+
+    .woocommerce-button {
+      width: 100%;
+      height: 100%;
+      @include item-button;
+      @extend %button;
+      @extend %button__secondary;
+      border-radius: 0rem !important;
+      height: 3rem !important;
+      @include flex-col-center;
+      text-align: center;
+      align-items: center;
+
+      --button--border-color: #00000000 !important;
+    }
+  }
+
+  h3.woocommerce-Address-title // Addresses panel titles
+  h3  // just all of em
+  {
+    &,
+    & * {
+      @include very-important {
+        @include text--h4;
+      }
+    }
+  }
+
+  legend // title thing before password changing menu on account details
+  {
+    &,
+    & * {
+      @include very-important {
+        @include text--h4;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  fieldset //section with the password change in it on account details
+  {
+    margin-top: 2.75rem;
+  }
+}

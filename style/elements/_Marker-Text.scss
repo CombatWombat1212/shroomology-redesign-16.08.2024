@@ -1,0 +1,35 @@
+// .marker-text {
+//   &--column {
+//     --marker-width: 2.9ch;
+//     counter-reset: marker-step;
+//     @extend %text--h5;
+//   }
+
+//   @include flex-row;
+//   margin-bottom: 0rem!important;
+
+//   &+&{
+//     margin-top:2rem;
+//   }
+
+//   .iwt-icon {
+//     counter-increment: marker-step;
+//     position: relative !important;
+//     width: var(--marker-width);
+//     min-width: var(--marker-width);
+//     @include flex-col-center;
+
+//     &::before {
+//       content: counter(marker-step, decimal-leading-zero);
+//       display: block;
+//       @extend %text--h5;
+//       color: $col--primary;
+//     }
+//   }
+//   .iwt-text {
+//     @extend %text--body;
+//     color: $col--primary__light;
+//     padding: 0 !important;
+//     @include flex-col-center;
+//   }
+// }

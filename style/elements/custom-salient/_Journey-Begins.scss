@@ -1,0 +1,121 @@
+.journey-begins {
+  @include hide-until-load(".journey-begins--row");
+
+  &--row {
+    --graphic-width: 8rem;
+    --graphic-height: 5rem;
+
+    & > [class*="row_col"][class*="row_col"][class*="row_col"][class*="row_col"][class*="row_col"] {
+      @include pad-y-important(0rem);
+    }
+  }
+
+  &--graphic {
+    @include lg-down {
+      border-radius: $inf !important;
+      max-width: var(--site-max-width) !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+    }
+
+    & > *,
+    & > * * {
+      height: 100% !important;
+    }
+
+    img {
+      @include img-cover-important;
+    }
+  }
+  &--body {
+    @include flex-col-center-important;
+    & > * {
+      max-width: calc(100% - (var(--section--inner-gap) * 2)) !important;
+      margin: 0 auto !important;
+      @include lg-down{
+        max-width: var(--site-max-width) !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+  
+      }
+    }
+  }
+
+  &--header-row {
+    &:first-child {
+      @include lg-down {
+        margin-top: 2rem !important;
+      }
+    }
+  }
+  &--header-column {
+    // margin-bottom: 2rem !important;
+  }
+  &--header {
+    margin-bottom: 0.35rem !important;
+  }
+  &--header-paragraph {
+  }
+
+  &--highlight-row {
+    margin-top: 3.25rem !important;
+
+    @include lg-down {
+      margin-top: 5rem !important;
+    }
+
+    @mixin odd-row-col-reverse {
+      $parent: ".journey-begins--highlight-row:nth-child(odd)";
+      $child: "[class*='row_col_wrap']";
+      @at-root #{$parent} #{$child} {
+        @content;
+      }
+    }
+
+    & > [class*="row_col_wrap"] {
+      @include boot-gap-important(2.75rem);
+
+      @at-root .journey-begins--highlight-row:nth-child(odd) [class*="row_col_wrap"] {
+        @include flex-row-reverse-important;
+      }
+
+      @include lg-down {
+        @include very-important {
+          @include flex-col-important;
+        }
+      }
+    }
+  }
+
+  &--highlight-body {
+    width: unset;
+    flex: 1;
+  }
+
+  &--highlight-graphic {
+    @include flex-col-center-important;
+    width: var(--graphic-width) !important;
+    height: var(--graphic-height) !important;
+    @include very-important {
+      @include my-auto;
+    }
+
+    @include lg-down {
+      @include very-important {
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    img {
+      @include img-contain-important;
+      transform: scale(1.25) !important;
+    }
+  }
+  &--highlight-heading {
+    margin-bottom: 0.35rem !important;
+  }
+
+  &--highlight-text {
+  }
+}

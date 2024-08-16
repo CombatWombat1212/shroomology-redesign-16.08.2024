@@ -1,0 +1,89 @@
+// @import "Load-More";
+
+// @mixin post-margin-reset {
+//   &,
+//   & * {
+//     margin: 0 !important;
+//   }
+// }
+
+// .post-carousel,
+// .post-masonry {
+//   @include text {
+//     color: $col--primary__light !important;
+//   }
+
+//   &--row {
+//   }
+
+//   &--column {
+//   }
+
+//   .content {
+//     padding: 2.75rem !important;
+//   }
+
+//   .item-main {
+//     @include flex-col-important;
+//   }
+
+//   .post-heading,
+//   .nectar-post-grid-item__excerpt-wrap,
+//   .nectar-post-grid-item__meta-wrap {
+//     @include post-margin-reset;
+//   }
+//   .post-heading {
+//     order: 1;
+//     margin-bottom: 0.85rem !important;
+
+//     &,
+//     & > a,
+//     & > a > span {
+//       @extend %text--h5;
+//     }
+//   }
+
+//   .nectar-post-grid-item__excerpt-wrap {
+//     order: 2;
+//     * {
+//       @extend %text--body;
+//     }
+//   }
+
+//   .nectar-post-grid-item__meta-wrap {
+//     margin-bottom: 0.45rem !important;
+
+//     order: 0;
+//     * {
+//       @extend %text--body;
+//       font-weight: bold !important;
+//       color: $col--tertiary !important;
+//     }
+//   }
+// }
+
+// %post-masonry-row {
+//   @include load-more-wrap__secondary {
+//     @include lg-down {
+//       margin-bottom: 0rem !important;
+//     }
+//   }
+
+//   --col__negative: #{$col--background};
+
+//   .nectar-post-grid {
+//     margin: calc(-15px / 2) !important;
+//   }
+//   .nectar-post-grid-item {
+//     margin: calc(15px / 2);
+//   }
+
+//   .content {
+//     padding: 1.5rem !important;
+//   }
+
+//   .post-heading {
+//     margin-bottom: 0rem !important;
+//     @include hyphenate;
+//   }
+// }

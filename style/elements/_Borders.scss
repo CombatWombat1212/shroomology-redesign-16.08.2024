@@ -1,0 +1,40 @@
+@mixin border-reset {
+  border-style: unset !important;
+  border-width: unset !important;
+}
+
+
+.dashed-border {
+
+  &__background{
+    --col__negative: #{$col--background} !important;
+  }
+
+  &--top {
+    @include dashed-border(horizontal);
+    @include border-reset;
+    border-top-style: solid !important;
+    border-top-width: var(--border-width);
+  }
+
+  &--bottom {
+    @include dashed-border(horizontal);
+    @include border-reset;
+    border-bottom-style: solid !important;
+    border-bottom-width: var(--border-width);
+  }
+
+  &--left {
+    @include dashed-border(vertical);
+    @include border-reset;
+    border-left-style: solid !important;
+    border-left-width: var(--border-width);
+  }
+
+  &--right {
+    @include dashed-border(vertical);
+    @include border-reset;
+    border-right-style: solid !important;
+    border-right-width: var(--border-width);
+  }
+}

@@ -1,0 +1,41 @@
+%load-more-wrap {
+  @include md-down {
+    margin-bottom: 0rem;
+  }
+
+  a {
+    background-color: $col--primary;
+    color: $col--tertiary;
+    border: 2px solid $col--primary;
+    @include hover {
+      background-color: rgba($col--primary, 0);
+      color: $col--primary;
+    }
+  }
+
+  &__secondary {
+    a {
+      background-color: $col--tertiary !important;
+      color: $col--primary !important;
+      border: 2px solid $col--tertiary !important;
+      @include hover {
+        background-color: rgba($col--tertiary, 0) !important;
+        color: $col--tertiary !important;
+      }
+    }
+  }
+}
+
+@mixin load-more-wrap {
+  .load-more-wrap {
+    @extend %load-more-wrap;
+    @content;
+  }
+}
+
+@mixin load-more-wrap__secondary {
+  .load-more-wrap {
+    @extend %load-more-wrap__secondary;
+    @content;
+  }
+}

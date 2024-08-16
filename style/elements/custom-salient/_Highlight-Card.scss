@@ -1,0 +1,190 @@
+@mixin type($str) {
+  $root: ".highlight-card";
+  @if $root == #{&} {
+    @at-root #{$root}#{$root}__#{$str} {
+      @content;
+    }
+  } @else {
+    @at-root #{$root}#{$root}__#{$str} & {
+      @content;
+    }
+  }
+}
+
+.highlight-card {
+  &--row {
+    --highlight-card--gap: 2rem;
+    --highlight-card--padding: 1.75rem;
+    // --highlight-card--padding: 1.45vw;
+    --highlight-card--icon-size: 3.25rem;
+
+    --highlight-card--column-gap: var(--highlight-card--gap);
+    --highlight-card--row-gap: var(--highlight-card--gap);
+
+    @include xl-down {
+      --highlight-card--gap: 1rem;
+      --highlight-card--padding: 1.5rem;
+    }
+
+    @include lg-down {
+      --highlight-card--gap: 2rem;
+      --highlight-card--padding: 2rem;
+    }
+
+    [class*="row_col_wrap"] {
+      @include boot-gap-important(
+        var(--highlight-card--column-gap),
+        var(--highlight-card--row-gap)
+      );
+      // height: var(--highlight-card--expanded-max-height);
+      @include md-down {
+        height: auto !important;
+      }
+    }
+
+    @at-root #home--highlights .row-bg.using-image {
+      background-size: calc(100% + var(--highlight-card--expanded-max-height) + 70rem);
+      @include md-down {
+        background-size: cover;
+      }
+    }
+  }
+
+  @include hide-until-load("#home--highlights");
+
+  margin-bottom: 0rem !important;
+  overflow: hidden;
+  height: var(--highlight-card--collapsed-max-height);
+  transition: height 0.6s ease-in-out;
+
+  @include md-down {
+    height: auto !important;
+  }
+
+  &.expanded {
+    height: calc(var(--highlight-card--expanded-max-height) + var(--highlight-card--padding) * 2);
+  }
+
+  //card--column-inner
+  [class*="column-inner"] {
+    padding: var(--highlight-card--padding);
+    background-color: $col--gray;
+    padding-bottom: calc(var(--highlight-card--padding) * 1);
+
+    height: 100%;
+
+    overflow: hidden;
+
+    transition: 0.2s background-color ease-out;
+    cursor: pointer;
+
+
+
+    
+    @include hover {
+      background-color: darken($col--gray, 10%);
+    }
+
+
+    @include md-down {
+      @include hover {
+        cursor: default;
+        background-color: $col--gray;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+
+      position: absolute;
+      bottom: calc(var(--highlight-card--padding) * 0.5);
+      left: 50%;
+      transform: translateX(-50%) rotate(0deg);
+      background-image: $img--arrow;
+      background-repeat: no-repeat;
+      background-size: contain;
+      visibility: visible;
+      transition: 0.5s transform ease-out;
+
+      @at-root .highlight-card.expanded [class*="column-inner"]::after {
+        transform: translateX(-50%) rotate(180deg);
+      }
+
+      @include md-down {
+        display: none;
+      }
+    }
+  }
+
+  //card--card-wrapper
+  [class*="column-inner"] .wpb_wrapper {
+    @include flex-col-center;
+  }
+
+  //card--image-container
+  .hover-wrap {
+    @include flex-row-center;
+    margin-bottom: calc(var(--highlight-card--padding) * 0.75);
+  }
+
+  &--heading.highlight-card--heading.highlight-card--heading.highlight-card--heading {
+    height: var(--highlight-card--heading-max-height);
+    margin-bottom: calc(var(--highlight-card--padding) * 2) !important;
+    @include flex-col-center;
+    text-align: center;
+    
+    @include md-down {
+      margin-bottom: calc(var(--highlight-card--padding) * 1) !important;
+      height: auto;
+    }
+  }
+
+  &--paragraph[class*="paragraph"][class*="paragraph"][class*="paragraph"][class*="paragraph"] {
+    text-align: left;
+    margin-bottom: 0rem !important;
+
+    p {
+      color: $col--cocoa;
+    }
+  }
+
+  //card--image-wrapper
+  .hover-wrap-inner {
+    --size: var(--highlight-card--icon-size);
+    @include s;
+
+    img {
+      @include img-contain;
+    }
+  }
+
+  //card--divider-wrapper
+  .divider-wrap {
+
+
+    transition:0.2s;
+    opacity: 0;
+
+    @at-root .highlight-card.expanded .divider-wrap {
+      opacity: 1;
+    }
+
+    @include md-down {
+      opacity: 1;
+    }
+
+
+    @include flex-col-center;
+    margin-bottom: var(--highlight-card--padding);
+
+    div {
+      height: 3px !important;
+      width: calc(100% + var(--highlight-card--padding) * 2);
+      margin-left: calc(var(--highlight-card--padding) * -1);
+      margin-right: calc(var(--highlight-card--padding) * -1);
+      background-color: darken($col--gray, 15);
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.woocommerce-order {
+  h2,
+  .woocommerce-column__title,
+  .woocommerce-order-details__title {
+    &,
+    & * {
+      @include very-important {
+        @include text--h4;
+        // opacity: 0.25 !important;
+        line-height: 110% !important;
+        margin-top: 1rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+    }
+  }
+
+  p,
+  .woocommerce-table td,
+  address {
+    &,
+    & * {
+      @include very-important {
+        @include item-body;
+        font-weight: 400 !important;
+        // opacity: 0.25 !important;
+      }
+    }
+
+    strong {
+      @include very-important {
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  [class*="woocommerce-order-overview"] {
+    @include item-quantity;
+
+    strong {
+      @include item-body;
+      font-weight: 600 !important;
+    }
+  }
+
+  //   label {
+  //     @include very-important {
+  //       margin-top: 1.25rem;
+  //       margin-bottom: 0.5rem;
+  //     }
+  //   }
+
+  .woocommerce-table th,
+  .product-name {
+    &,
+    & * {
+      @include very-important {
+        @include item-name;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  //   row of important deets at the top
+  .woocommerce-order-overview {
+    @include very-important {
+      @include flex-row-important;
+
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      @include lg-down {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      @include md-down {
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr) !important;
+      }
+
+      & > * {
+        // padding: 0rem !important;
+        margin: 0rem !important;
+        white-space: nowrap;
+        @include md-down {
+          border: none !important;
+        }
+      }
+
+      @include pseudo-reset;
+    }
+  }
+
+  .wc-item-meta {
+    list-style: none;
+    margin: 0rem !important;
+  }
+
+  // address panel in order details
+  address {
+    @include item-address;
+  }
+
+  //   weird gap fix after payment info
+  .woocommerce-order-overview + p {
+    br:last-child {
+      display: none;
+    }
+  }
+
+  //   input,
+  //   select,
+  //   label.checkbox,
+  //   textarea,
+  //   .payment_box,
+  //   .order-review td,
+  //   .acfw-store-credit-user-balance,
+  //   .acfw-store-credit-instructions {
+  //     &,
+  //     & * {
+  //       @include very-important {
+  //         @include item-body;
+  //         font-weight: 400 !important;
+  //         // opacity: 0.25 !important;
+  //       }
+  //     }
+
+  //     strong {
+  //       @include very-important {
+  //         font-weight: 600 !important;
+  //       }
+  //     }
+  //   }
+}

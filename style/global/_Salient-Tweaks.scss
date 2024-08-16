@@ -1,0 +1,58 @@
+@mixin icon-with-text($width: 2rem, $pad: 1rem, $margin: 1rem) {
+  .iwithtext {
+    @include flex-row-important;
+    align-items: center;
+    margin-bottom: 0rem;
+
+    & + .iwithtext {
+      margin-top: #{$margin};
+    }
+    .clear {
+      display: none !important;
+    }
+  }
+
+  .iwt-icon,
+  .iwt-text {
+    display: flex !important;
+    position: relative !important;
+  }
+
+  .iwt-text {
+    padding: 0rem !important;
+  }
+
+  .iwt-icon {
+    @include s;
+    --size: #{$width};
+    min-width: #{$width};
+    margin-right: #{$pad};
+
+    img {
+      @include img-contain-important;
+    }
+  }
+}
+
+
+
+@mixin very-important {
+    #ajax-content-wrap#ajax-content-wrap#ajax-content-wrap & {
+      @content;
+    }
+  }
+
+
+  @mixin head-very-important {
+    #header-outer[id*="header-outer"][id*="header-outer"] & {
+      @content;
+    }
+  }
+  
+  
+
+  @mixin section-row-col{
+    & > [class*="row_col"] {
+      @content;
+    }
+  }
