@@ -3734,11 +3734,15 @@ html[style*="--site--container-margin__px"]:not([style*="--site--container-margi
   align-items: center;
   gap: 1.5rem;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 .product-template-default.single-product #ajax-content-wrap .cart::before, .product-template-default.single-product #ajax-content-wrap .cart::after {
   content: none;
 }
 .product-template-default.single-product #ajax-content-wrap .quantity {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   order: 1;
   margin: 0rem !important;
 }
@@ -3792,6 +3796,105 @@ html[style*="--site--container-margin__px"]:not([style*="--site--container-margi
   font-family: "Loretta" !important;
   font-size: calc(var(--font-size--body) * 0.85) !important;
   text-transform: uppercase !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .woocommerce-variation-add-to-cart {
+  flex-wrap: wrap;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form table.variations {
+  margin-bottom: 0rem !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form table.variations .value {
+  padding-right: 0rem !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .variations th {
+  padding-left: 0rem !important;
+  margin-bottom: 0.35rem !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .variations th, .product-template-default.single-product #ajax-content-wrap .variations_form .variations th * {
+  font-size: var(--font-size--h5) !important;
+  line-height: var(--line-height--h5, normal) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: "Loretta" !important;
+  font-weight: 500 !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .selection, .product-template-default.single-product #ajax-content-wrap .variations_form .selection * {
+  font-size: var(--font-size--body) !important;
+  line-height: var(--line-height--body, normal) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: "Gill Sans" !important;
+  font-weight: 300 !important;
+  line-height: 150% !important;
+  font-weight: 400 !important;
+  color: #1e0d09 !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .select2-selection {
+  background-color: white !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .select2-selection {
+  transition: var(--transition);
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .select2-selection:hover, .product-template-default.single-product #ajax-content-wrap .variations_form .select2-selection:focus, .product-template-default.single-product #ajax-content-wrap .variations_form .select2-selection.focus, .product-template-default.single-product #ajax-content-wrap .variations_form .select2-selection.hover {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form [role=presentation] {
+  border-color: #1e0d09 transparent transparent transparent !important;
+}
+.single-product .selection > *:first-child:hover [role=presentation], .single-product .selection > *:first-child:focus [role=presentation], .single-product .selection > *:first-child.focus [role=presentation], .single-product .selection > *:first-child.hover [role=presentation] {
+  border-color: #1e0d09 transparent transparent transparent !important;
+}
+
+.single-product .selection > *:first-child [role=presentation] {
+  transition: var(--transition);
+}
+
+.single-product .select2-results, .single-product .select2-results * {
+  font-size: var(--font-size--body) !important;
+  line-height: var(--line-height--body, normal) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: "Gill Sans" !important;
+  font-weight: 300 !important;
+  line-height: 150% !important;
+  font-weight: 400 !important;
+  color: #1e0d09 !important;
+}
+
+.product-template-default.single-product #ajax-content-wrap .variations_form .reset_variations {
+  font-size: var(--font-size--body) !important;
+  line-height: var(--line-height--body, normal) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: "Gill Sans" !important;
+  font-weight: 300 !important;
+  line-height: 150% !important;
+  font-size: calc(var(--font-size--body) * 0.85) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1000000rem !important;
+  padding: 0.5rem 1rem !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .reset_variations {
+  transition: var(--transition);
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .reset_variations:hover, .product-template-default.single-product #ajax-content-wrap .variations_form .reset_variations:focus, .product-template-default.single-product #ajax-content-wrap .variations_form .reset_variations.focus, .product-template-default.single-product #ajax-content-wrap .variations_form .reset_variations.hover {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .variations_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+.product-template-default.single-product #ajax-content-wrap .variations_form .price {
+  margin-top: 0.75rem !important;
 }
 .product-template-default.single-product .stock,
 .product-template-default.single-product .woocommerce-breadcrumb {

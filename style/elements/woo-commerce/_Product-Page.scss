@@ -86,6 +86,8 @@
       align-items: center;
       gap: 1.5rem;
       margin-top: 2rem;
+      flex-wrap: wrap;
+
 
       &::before,
       &::after {
@@ -94,6 +96,9 @@
     }
 
     .quantity {
+      @include flex-row;
+      flex-wrap: nowrap;
+
       order: 1;
       margin: 0rem !important;
       &,
@@ -132,6 +137,90 @@
       @include item-button;
       @extend %button;
       margin-top: 0rem;
+    }
+
+    .variations_form {
+      @include flex-col;
+      align-items: flex-start !important;
+
+      .woocommerce-variation-add-to-cart {
+        flex-wrap: wrap;
+      }
+
+
+      table.variations {
+        margin-bottom: 0rem !important;
+      }
+      table.variations .value {
+        padding-right: 0rem !important;
+      }
+
+      .variations th {
+        padding-left: 0rem !important;
+        margin-bottom: 0.35rem !important;
+        &,
+        & * {
+          @include text--h5;
+        }
+      }
+
+      .selection {
+        &,
+        & * {
+          @include item-body;
+          font-weight: 400 !important;
+          color: $col--cocoa !important;
+        }
+      }
+
+      // part of the input that's hovered
+      .select2-selection {
+        background-color: rgba($col--white, 1) !important;
+        @include hover {
+          background-color: rgba(#fff, 0.75) !important;
+        }
+      }
+
+      //caret
+      [role="presentation"] {
+        border-color: $col--cocoa transparent transparent transparent !important;
+
+        @include hover(".single-product .selection > *:first-child", "[role=presentation]") {
+          border-color: $col--cocoa transparent transparent transparent !important;
+        }
+      }
+
+      @at-root .single-product .select2-results {
+        &,
+        & * {
+          @include item-body;
+          font-weight: 400 !important;
+          color: $col--cocoa !important;
+        }
+      }
+
+      // clear button
+      .reset_variations {
+        @include item-quantity;
+        background-color: rgba(#fff, 0.1) !important;
+        border-radius: $inf !important;
+        padding: 0.5rem 1rem !important;
+        @include hover {
+          background-color: rgba(#fff, 0.25) !important;
+        }
+      }
+
+      // wrapper for quantity and add to cart on variations version
+      .variations_button {
+        @include flex-row;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      // price that appears once you select a variation
+      .price {
+        margin-top: 0.75rem !important;
+      }
     }
   }
 
@@ -255,8 +344,8 @@
       }
     }
 
-    .woocommerce-pagination{
-      padding-left: calc(160px + 7.5% + 5.5%)!important;
+    .woocommerce-pagination {
+      padding-left: calc(160px + 7.5% + 5.5%) !important;
     }
 
     ul.page-numbers > li > * {
@@ -274,7 +363,7 @@
       &:not(a) {
         background-color: rgba(#fff, 0) !important;
         cursor: default !important;
-        pointer-events: none !important;  
+        pointer-events: none !important;
       }
 
       @include marg-x(0.25rem);
